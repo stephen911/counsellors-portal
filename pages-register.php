@@ -175,10 +175,26 @@
                                         <option selected></option>
                                         <option>Senior High Certificate</option>
                                         <option>Diploma Certificate</option>
-                                        <option>Bachelor's Degree</option>
-                                        <option>Master's Degree</option>
+                                        <option value="Bachelors Degree">Bachelor's Degree</option>
+                                        <option value="Masters Degree">Master's Degree</option>
                                         <option>Doctorate Degree</option>
                                         <option>Others</option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
+                                    <select class="form-select" id="student-select" name="membership">
+                                        <option selected></option>
+                                        <option value="Certificated">Certificated Counsellor</option>
+                                        <option value="Associate">Associate Counsellor</option>
+
+
+                                        <option value="Student">Student - Counsellor</option>
+
+
 
                                     </select>
                                 </div>
@@ -187,17 +203,17 @@
                                     <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
                                     <select class="form-select" id="example-select" name="area">
                                         <option selected></option>
-                                        <option >Marriage and Family</option>
-                                        <option >Guidance and Career</option>
+                                        <option>Marriage and Family</option>
+                                        <option>Guidance and Career</option>
 
 
-                                        <option >Rehabilitaion</option>
-                                        <option >Mental Health</option>
-                                        <option >Substance Abuse</option>
+                                        <option>Rehabilitaion</option>
+                                        <option>Mental Health</option>
+                                        <option>Substance Abuse</option>
 
 
-                                        <option >School and Careets</option>
-                                        <option >Others</option>
+                                        <option>School and Careets</option>
+                                        <option>Others</option>
 
                                     </select>
                                 </div>
@@ -241,7 +257,7 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="example-select" class="form-label">Are you a Student?</label>
                                     <select class="form-select" id="example-select" name="student">
                                         <option selected></option>
@@ -250,91 +266,94 @@
 
 
                                     </select>
-                                </div>
+                                </div> -->
 
-
-                                <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Name of Institution / School</label>
-                                    <input class="form-control" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Programme Of Study</label>
-                                    <input class="form-control" type="text" id="programme" required placeholder="Enter your programme of study" name="programme">
-                                </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane show active" id="datepicker-preview">
-                                        <div class="col-lg-6">
-                                            <div class="mb-3 position-relative" id="datepicker6">
-                                                <label class="form-label">Year Of Entry</label>
-                                                <input type="text" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="example-fileinput" class="form-label">Upload Student ID Card</label>
-                                            <input type="file" id="example-fileinput" class="form-control" name="idcard">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="example-select" class="form-label">How did you hear/Know of this association</label>
-                                            <select class="form-select" id="example-select" name="heard">
-                                                <option selected></option>
-                                                <option>GNACC Website</option>
-                                                <option>Facebook</option>
-                                                <option>WhatsApp</option>
-                                                <option>Instagram</option>
-                                                <option>Friend</option>
-                                                <option>News Papers</option>
-                                                <option>TUCEE Institute of Counselling and Technology Website</option>
-
-
-                                            </select>
-                                        </div>
-
-
-
-
-
-
-
-
-
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                                            <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label">Password</label>
-                                            <div class="input-group input-group-merge">
-                                                <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
-                                                <div class="input-group-text" data-password="false">
-                                                    <span class="password-eye"></span>
+                                <div id="student" style="display: none;">
+                                    <div class="mb-3">
+                                        <label for="emailaddress" class="form-label">Name of Institution / School</label>
+                                        <input class="form-control" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="emailaddress" class="form-label">Programme Of Study</label>
+                                        <input class="form-control" type="text" id="programme" required placeholder="Enter your programme of study" name="programme">
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="datepicker-preview">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3 position-relative" id="datepicker6">
+                                                    <label class="form-label">Year Of Entry</label>
+                                                    <input type="text" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year">
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label">Confirm Password</label>
-                                            <div class="input-group input-group-merge">
-                                                <input type="password" id="password" class="form-control" placeholder="Enter your password" name="repass">
-                                                <div class="input-group-text" data-password="false">
-                                                    <span class="password-eye"></span>
-                                                </div>
-                                            </div>
+                                    <div class="mb-3">
+                                        <label for="example-fileinput" class="form-label">Upload Student ID Card</label>
+                                        <input type="file" id="example-fileinput" class="form-control" name="idcard">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">How did you hear/Know of this association</label>
+                                    <select class="form-select" id="example-select" name="heard">
+                                        <option selected></option>
+                                        <option>GNACC Website</option>
+                                        <option>Facebook</option>
+                                        <option>WhatsApp</option>
+                                        <option>Instagram</option>
+                                        <option>Friend</option>
+                                        <option>News Papers</option>
+                                        <option>TUCEE Institute of Counselling and Technology Website</option>
+
+
+                                    </select>
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                    <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <!-- <div class="mb-3">
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Confirm Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password" class="form-control" placeholder="Enter your password" name="repass">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="mb-3">
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="checkbox-signup">
                                         <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
                                     </div>
                                 </div> -->
 
-                                        <div class="mb-3 text-center">
-                                            <button class="btn btn-primary" type="submit"> Sign Up </button>
-                                        </div>
+                                <div class="mb-3 text-center">
+                                    <button class="btn btn-primary" type="submit"> Sign Up </button>
+                                </div>
 
                             </form>
                         </div> <!-- end card-body -->
@@ -370,6 +389,7 @@
     <script src="assets/js/sweetalert2.all.min.js"></script>
 
     <script src="processor.js"></script>
+    <script src="assets/js/view.js"></script>
 
 </body>
 

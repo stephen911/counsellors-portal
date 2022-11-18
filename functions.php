@@ -10,6 +10,7 @@ function login($email, $password)
 {
     include 'starter.php';
 
+
     // extract($_POST);
     $email = mysqli_real_escape_string($conn, $email);
     $password = mysqli_real_escape_string($conn, $password);
@@ -186,7 +187,7 @@ function updateuser($id, $gender, $email, $contact, $telegram, $lincesed, $regnu
     // }
 }
 
-function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $challenge, $color, $size, $student, $school, $programme, $year, $heard, $password)
+function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year, $heard, $password)
 {
     $password = md5($password);
     include 'starter.php';
@@ -202,26 +203,31 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-        if (isset($_POST['submit'])) {
 
 
-            $filename = $_FILES[$passport]["name"];
 
-            $tempname = $_FILES[$passport]["tmp_name"];
+        $filename = $_FILES['passport']["name"];
 
-
-            $filenameid = $_FILES[$idcard]["name"];
-
-            $tempnameid = $_FILES[$idcard]["tmp_name"];
-
-            $folder = "./uploads/" . $filename;
-            $folder1 = "./uploads/" . $filenameid;
+        $tempname = $_FILES['passport']["tmp_name"];
 
 
 
 
 
-            
+        if (!isset($_FILES['idcard']['name'])) {
+
+            $filenameid = $_FILES['idcard']["name"];
+
+            $tempnameid = $_FILES['idcard']["tmp_name"];
+
+            $folder = "uploads/" . $filename;
+            $folder1 = "uploads/" . $filenameid;
+
+
+
+
+
+
 
             $sql = "INSERT INTO members (passport,iDCard) VALUES ('$filename', '$filenameid')";
             // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
@@ -229,164 +235,203 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
             // Execute query
 
-            mysqli_query($db, $sql);
-
+            mysqli_query($conn, $sql);
 
             // Now let's move the uploaded image into the folder: image
 
             if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnameid, $folder1)) {
 
-                echo "<h3>  Image uploaded successfully!</h3>";
+                echo "";
             } else {
 
-                echo "<h3>  Failed to upload image!</h3>";
+                echo "<h3>  Failed to upload image passport!</h3>";
             }
+        } else {
 
-            $dd = date('jS F, Y');
-            $oneYearOn = date('Y-m-d', strtotime(date("Y-m-d", $dd) . " + 365 day"));
-            $year = strtok($date, '-');
-            $gnaccid = uniqid($year, true);
-            $old = $tdate;
+            $folder = "uploads/" . $filename;
 
-            $tdate = date('jS F, Y', strtotime($old));
+            $sql = "INSERT INTO members (passport) VALUES ('$filename')";
+            // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
 
 
-            $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,phyChallenge,color,size,student,school,programme,year,iDCard,heard,email,password,gnaccid,expiry,dateadded) VALUES('$title','$name', '$gender', '$tdate', '$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$challenge','$color','$size','$student','$school','$programme','$year','$filenameid ','$heard','$email','$password','$gnaccid','$oneYearOn','$dd' ) ");
+            // Execute query
 
-            if ($ins) {
-                $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
-                $row = mysqli_fetch_array($sel);
-                session_start();
-                $_SESSION['id'] = $row['id'];
+            mysqli_query($conn, $sql);
 
-                echo 'registered';
+            // Now let's move the uploaded image into the folder: image
+
+            if (move_uploaded_file($tempname, $folder)) {
+
+                echo "";
             } else {
 
+                echo "<h3>  Failed to upload image id!</h3>";
             }
-
-
-            // if (isset($_POST['submit']) && isset($_FILES[$passport] ) && isset($_FILES[$idcard])) {
-
-
-            //     echo "<pre>";
-            //     print_r($_FILES[$passport]);
-            //     print_r($_FILES[$idcard]);
-            //     echo "</pre>";
-
-            //     $img_name = $_FILES[$passport]['name'];
-            //     $img_size = $_FILES[$passport]['size'];
-            //     $tmp_name = $_FILES[$passport]['tmp_name'];
-            //     $error = $_FILES[$passport]['error'];
-
-
-            //     $img_nameid = $_FILES[$idcard]['name'];
-            //     $img_sizeid = $_FILES[$idcard]['size'];
-            //     $tmp_nameid = $_FILES[$idcard]['tmp_name'];
-            //     $errorid = $_FILES[$idcard]['error'];
-
-            //     if ($error === 0 && $errorid === 0) {
-            //         if ($img_size > 125000 && $img_sizeid > 125000) {
-            //             $em = "Sorry, your file is too large.";
-            //             header("Location: index.php?error=$em");
-            //         } else {
-            //             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-            //             $img_ex_lc = strtolower($img_ex);
-
-            //             $img_exid = pathinfo($img_nameid, PATHINFO_EXTENSION);
-            //             $img_ex_lcid = strtolower($img_exid);
-
-            //             $allowed_exs = array("jpg", "jpeg", "png");
-
-            //             if (in_array($img_ex_lc, $allowed_exs)&&in_array($img_ex_lcid, $allowed_exs)) {
-            //                 $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
-            //                 $new_img_nameid = uniqid("IMG-", true) . '.' . $img_ex_lcid;
-            //                 $img_upload_path = 'uploads/' . $new_img_name;
-            //                 move_uploaded_file($tmp_name, $img_upload_path);
-            //                 $img_upload_pathid = 'uploads/' . $new_img_nameid;
-            //                 move_uploaded_file($tmp_nameid, $img_upload_pathid);
-            //                 $dd = date('jS F, Y');
-            //                 $oneYearOn = date('Y-m-d',strtotime(date("Y-m-d", $dd) . " + 365 day"));
-            //                 $year = strtok($date, '-');
-            //                 $gnaccid = uniqid($year, true);
-            //                 $old = $tdate;
-
-            //                 $tdate = date('jS F, Y', strtotime($old));
-
-
-            //                 $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,phyChallenge,color,size,student,school,programme,year,iDCard,heard,email,password,gnaccid,expiry,dateadded) VALUES('$title','$name', '$gender', '$tdate', '$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$new_img_name','$edulevel','$area','$challenge','$color','$size','$student','$school','$programme','$year','$new_img_nameid ','$heard','$email','$password','$gnaccid','$oneYearOn','$dd' ) ");
-
-            //                 if ($ins) {
-            //                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
-            //                     $row = mysqli_fetch_array($sel);
-            //                     session_start();
-            //                     $_SESSION['id'] = $row['id'];
-
-            //                     echo 'registered';
-            //                 } else {
-            //                 }
-            //                 // Insert into Database
-            //                 $sql = "INSERT INTO images(image_url) 
-            //                     VALUES('$new_img_name')";
-            //                 mysqli_query($conn, $sql);
-            //                 header("Location: dashboard.php");
-            //             } else {
-            //                 $em = "You can't upload files of this type";
-            //                 header("Location: index.php?error=$em");
-            //             }
-            //         }
-            //     } else {
-            //         $em = "unknown error occurred!";
-            //         header("Location: index.php?error=$em");
-            //     }
-            // } else {
-            //     header("Location: index.php");
-            // }
         }
 
-        // $dd = date('jS F, Y');
-        // $old = $tdate;
-        // $tdate = date('jS F, Y', strtotime($old));
 
 
-        // $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,phyChallenge,color,size,student,school,programme,year,iDCard,heard,email,password,dateadded) VALUES('$title','$name', '$gender', '$tdate', '$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$passport','$edulevel','$area','$challenge','$color','$size','$student','$school','$programme','$year','$idcard','$heard','$email','$password','$dd' ) ");
 
-        // if ($ins) {
-        //     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
-        //     $row = mysqli_fetch_array($sel);
-        //     session_start();
-        //     $_SESSION['id'] = $row['id'];
 
-        //     echo 'registered';
-        // $subject = 'NTC REGISTRATION';
-        // $admin = 'New user has registered for ntc programme. name - ' . $name . ' , contact - ' . $contact . '';
-        // $body = '<html> 
-        // <head> 
-        //     <title>TUCEE Institute of Counselling and Technology</title> 
-        // </head> 
-        // <body> 
-        //     <h4>Registration Successful</h4> 
-        //     <b> <span style="color: green;">Congratulations</span>, you are duly registered for the Counselling training. Proceed to make <span style="color: green;">Payment</span> to Confirm your Participation. Call <span style="color: green;">+233(0)54 1369 429</span> for any assistance. Thanks</b>
-        // </body> 
-        // </html>';
-        // yolk mailer
-        // $mym = [$email];
-        // $from = ['Tucee', 'TUCEEHUB@tuceehub.org'];
-        // $headers = 'MIME-Version: 1.0' . "\r\n";
-        // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        // $headers .= 'From: ' . $from[1];
-        // mail($email, 'TUCEE NTC REGISTRATION', $body, $headers);
 
-        // $send->sms('Tucee hub', $contact, 'Congratulations, you are duly registered for the Counselling training.Please continue with your Registration. Proceed to make payment  to confirm your participation  Call 0541 369 429 for any assistance. Thanks');
 
-        // $sel = mysqli_query($conn, "SELECT * FROM members WHERE id = '$uid'");
-        // $row = mysqli_fetch_array($sel);
+        $dd = date('jS F, Y');
+        $end = date('jS F, Y', strtotime('+5 years'));
+        $year = strtok($dd, '-');
+        $gnaccid = uniqid($year, true);
+        $old = $tdate;
 
-        // $sms->sms('Tucee hub', '0208496496,0244996991', $admin);
-        // mail('stephendappah1@gmail.com', 'TUCEE NTC REGISTRATION', $admin, $headers);
+        $tdate = date('jS F, Y', strtotime($old));
+        $existing = "no";
+
+
+
+
+
+
+        $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,heard,email,password,gnaccid,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year','$heard','$email','$password','$gnaccid','$end','$existing','$dd' ) ");
+
+        if ($ins) {
+            $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
+            $row = mysqli_fetch_array($sel);
+            // $idm = $row['id'];
+            // $sql = "INSERT INTO transactions (uid) VALUES ('$idm')";
+            // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
+
+
+            // Execute query
+
+            // mysqli_query($conn, $sql);
+            session_start();
+            $_SESSION['id'] = $row['id'];
+
+            echo 'registered';
+        } else {
+        }
+
+
+        // if (isset($_POST['submit']) && isset($_FILES[$passport] ) && isset($_FILES[$idcard])) {
+
+
+        //     echo "<pre>";
+        //     print_r($_FILES[$passport]);
+        //     print_r($_FILES[$idcard]);
+        //     echo "</pre>";
+
+        //     $img_name = $_FILES[$passport]['name'];
+        //     $img_size = $_FILES[$passport]['size'];
+        //     $tmp_name = $_FILES[$passport]['tmp_name'];
+        //     $error = $_FILES[$passport]['error'];
+
+
+        //     $img_nameid = $_FILES[$idcard]['name'];
+        //     $img_sizeid = $_FILES[$idcard]['size'];
+        //     $tmp_nameid = $_FILES[$idcard]['tmp_name'];
+        //     $errorid = $_FILES[$idcard]['error'];
+
+        //     if ($error === 0 && $errorid === 0) {
+        //         if ($img_size > 125000 && $img_sizeid > 125000) {
+        //             $em = "Sorry, your file is too large.";
+        //             header("Location: index.php?error=$em");
+        //         } else {
+        //             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+        //             $img_ex_lc = strtolower($img_ex);
+
+        //             $img_exid = pathinfo($img_nameid, PATHINFO_EXTENSION);
+        //             $img_ex_lcid = strtolower($img_exid);
+
+        //             $allowed_exs = array("jpg", "jpeg", "png");
+
+        //             if (in_array($img_ex_lc, $allowed_exs)&&in_array($img_ex_lcid, $allowed_exs)) {
+        //                 $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+        //                 $new_img_nameid = uniqid("IMG-", true) . '.' . $img_ex_lcid;
+        //                 $img_upload_path = 'uploads/' . $new_img_name;
+        //                 move_uploaded_file($tmp_name, $img_upload_path);
+        //                 $img_upload_pathid = 'uploads/' . $new_img_nameid;
+        //                 move_uploaded_file($tmp_nameid, $img_upload_pathid);
+        //                 $dd = date('jS F, Y');
+        //                 $oneYearOn = date('Y-m-d',strtotime(date("Y-m-d", $dd) . " + 365 day"));
+        //                 $year = strtok($date, '-');
+        //                 $gnaccid = uniqid($year, true);
+        //                 $old = $tdate;
+
+        //                 $tdate = date('jS F, Y', strtotime($old));
+
+
+        //                 $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,phyChallenge,color,size,student,school,programme,year,iDCard,heard,email,password,gnaccid,expiry,dateadded) VALUES('$title','$name', '$gender', '$tdate', '$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$new_img_name','$edulevel','$area','$challenge','$color','$size','$student','$school','$programme','$year','$new_img_nameid ','$heard','$email','$password','$gnaccid','$oneYearOn','$dd' ) ");
+
+        //                 if ($ins) {
+        //                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
+        //                     $row = mysqli_fetch_array($sel);
+        //                     session_start();
+        //                     $_SESSION['id'] = $row['id'];
+
+        //                     echo 'registered';
+        //                 } else {
+        //                 }
+        //                 // Insert into Database
+        //                 $sql = "INSERT INTO images(image_url) 
+        //                     VALUES('$new_img_name')";
+        //                 mysqli_query($conn, $sql);
+        //                 header("Location: dashboard.php");
+        //             } else {
+        //                 $em = "You can't upload files of this type";
+        //                 header("Location: index.php?error=$em");
+        //             }
+        //         }
+        //     } else {
+        //         $em = "unknown error occurred!";
+        //         header("Location: index.php?error=$em");
+        //     }
         // } else {
-        //     echo 'Registeration failed';
+        //     header("Location: index.php");
         // }
     }
+
+    // $dd = date('jS F, Y');
+    // $old = $tdate;
+    // $tdate = date('jS F, Y', strtotime($old));
+
+
+    // $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,phyChallenge,color,size,student,school,programme,year,iDCard,heard,email,password,dateadded) VALUES('$title','$name', '$gender', '$tdate', '$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$passport','$edulevel','$area','$challenge','$color','$size','$student','$school','$programme','$year','$idcard','$heard','$email','$password','$dd' ) ");
+
+    // if ($ins) {
+    //     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
+    //     $row = mysqli_fetch_array($sel);
+    //     session_start();
+    //     $_SESSION['id'] = $row['id'];
+
+    //     echo 'registered';
+    // $subject = 'NTC REGISTRATION';
+    // $admin = 'New user has registered for ntc programme. name - ' . $name . ' , contact - ' . $contact . '';
+    // $body = '<html> 
+    // <head> 
+    //     <title>TUCEE Institute of Counselling and Technology</title> 
+    // </head> 
+    // <body> 
+    //     <h4>Registration Successful</h4> 
+    //     <b> <span style="color: green;">Congratulations</span>, you are duly registered for the Counselling training. Proceed to make <span style="color: green;">Payment</span> to Confirm your Participation. Call <span style="color: green;">+233(0)54 1369 429</span> for any assistance. Thanks</b>
+    // </body> 
+    // </html>';
+    // yolk mailer
+    // $mym = [$email];
+    // $from = ['Tucee', 'TUCEEHUB@tuceehub.org'];
+    // $headers = 'MIME-Version: 1.0' . "\r\n";
+    // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    // $headers .= 'From: ' . $from[1];
+    // mail($email, 'TUCEE NTC REGISTRATION', $body, $headers);
+
+    // $send->sms('Tucee hub', $contact, 'Congratulations, you are duly registered for the Counselling training.Please continue with your Registration. Proceed to make payment  to confirm your participation  Call 0541 369 429 for any assistance. Thanks');
+
+    // $sel = mysqli_query($conn, "SELECT * FROM members WHERE id = '$uid'");
+    // $row = mysqli_fetch_array($sel);
+
+    // $sms->sms('Tucee hub', '0208496496,0244996991', $admin);
+    // mail('stephendappah1@gmail.com', 'TUCEE NTC REGISTRATION', $admin, $headers);
+    // } else {
+    //     echo 'Registeration failed';
+    // }
+
 }
 
 function payment($uid, $ref, $amount)
@@ -400,7 +445,7 @@ function payment($uid, $ref, $amount)
 
 
     $ins = mysqli_query($conn, "INSERT INTO transactions (uid,transid,amount,dateadded) VALUES('$uid','$ref','$amount','$dateadded')");
-    $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid' WHERE id ='$uid'");
+    $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid' AND existing = 'yes' WHERE id ='$uid'");
 
     if ($uid == "") {
         $goo = "Empty uid: " . $uid;
@@ -440,7 +485,168 @@ function changepass($id, $password, $newpass)
         echo 'Incorrect Password';
     }
 }
+
+
 function transactions()
+{
+    // session_start();
+    $id = $_SESSION['id'];
+    include 'starter.php';
+
+    $u = mysqli_query($conn, 'SELECT * FROM members ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+    $counter = 1;
+    while ($row = mysqli_fetch_array($u)) {
+        $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
+
+
+        while ($row2 = mysqli_fetch_array($y)) {
+
+            // echo $id;
+            // echo $row2['uid'];
+            // echo $row['id'];
+
+            if ($row2['uid'] == $row['id']) {
+                if ($row['existing'] == "yes" && $row2['amount'] == 150) {
+                    echo '<tr>
+                                                                <td>
+                                                                    <b>' . $counter . '</b> <br/>
+                                                                    
+                                                                </td>
+                                                                
+                                                                <td><b>' . $row['membership'] . ' Counsellor (Renewal)</b></td> 
+
+                                                                <td><b>' . $row2['dateadded'] . '</b> </td>
+                                                                
+                                                                ';
+
+
+
+                    if (isset($row2['amount'])) {
+                        echo '<td><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    if (isset($row2['amount'])) {
+                        echo '<td class="text-end"><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    echo '
+                                                                
+                                                               
+    
+                                                                </tr>
+            ';
+                } else if ($row['existing'] == "yes" && $row2['amount'] == 150  && $row['membership'] == "Student") {
+                    echo '<tr>
+                                                                <td>
+                                                                    <b>' . $counter . '</b> <br/>
+                                                                    
+                                                                </td>
+                                                                
+                                                                <td><b>' . $row['membership'] . ' Counsellor</b></td> 
+
+                                                                <td><b>' . $row2['dateadded'] . '</b> </td>
+                                                                
+                                                                ';
+
+
+
+                    if (isset($row2['amount'])) {
+                        echo '<td><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    if (isset($row2['amount'])) {
+                        echo '<td class="text-end"><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    echo '
+                                                                
+                                                               
+    
+                                                                </tr>
+            ';
+                } else {
+                    echo '<tr>
+                <td>
+                <b>' . $counter . '</b> <br/>
+                
+            </td>
+                                                                
+                                                                <td><b>' . $row['membership'] . ' Counsellor</b></td>
+                                                                <td><b>' . $row2['dateadded'] . '</b> </td>
+                                                                
+                                                                ';
+
+                    if (isset($row2['amount'])) {
+                        echo '<td ><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    if (isset($row2['amount'])) {
+                        echo '<td class="text-end"><b>₵' . $row2['amount'] . '</b></td>';
+                    } else {
+                        echo '<td></td>';
+                    }
+
+                    echo '
+                                                                </tr>
+            ';
+                }
+                $counter++;
+            }
+        }
+
+
+
+
+        // break;
+
+
+        // code...
+    }
+}
+
+
+function transactionstotal()
+{
+    // session_start();
+    $id = $_SESSION['id'];
+    include 'starter.php';
+
+    $u = mysqli_query($conn, 'SELECT * FROM members ORDER BY id DESC ');
+    // $y = mysqli_query($conn, 'SELECT * FROM transactions ORDER BY uid DESC ');
+
+    $amount = 0;
+    while ($row = mysqli_fetch_array($u)) {
+        $y = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
+
+
+        while ($row2 = mysqli_fetch_array($y)) {
+
+            // echo $id;
+            // echo $row2['uid'];
+            // echo $row['id'];
+
+            if ($row2['uid'] == $row['id']) {
+
+                $amount = $amount + $row2['amount'];
+            }
+        }
+    }
+
+    return $amount;
+}
+
+function transactionsdate()
 {
     // session_start();
     $id = $_SESSION['id'];
@@ -448,29 +654,30 @@ function transactions()
 
     $sel = mysqli_query($conn, "SELECT * FROM  transactions WHERE uid = '$id'");
     while ($row = mysqli_fetch_array($sel)) {
-        echo '<tr>
-        <td>
-            <div class="d-flex align-items-center">
-                <small class="text-uppercase text-muted mr-2">Transaction Amount</small>
-                <a href="#"
-                   class="text-body small"><span class="js-lists-values-document">₵' . $row['amount'] . '.00</span></a>
-            </div>
-        </td>
-        
-        <td class="text-center">
-            <div class="d-flex align-items-center">
-                <small class="text-uppercase text-muted mr-2">Status</small>
-                <i class="material-icons text-success md-18 mr-2">lens</i>
-                <small class="text-uppercase js-lists-values-status">paid</small>
-            </div>
-        </td>
-        <td class="text-right">
-            <div class="d-flex align-items-center text-right">
-                <small class="text-uppercase text-muted mr-2">Date</small>
-                <small class="text-uppercase js-lists-values-date">' . $row['dateadded'] . '</small>
-            </div>
-        </td>
-    </tr>';
-        // code...
+        echo '
+        <small class="text-uppercase js-lists-values-date">' . $row['dateadded'] . '</small>
+        ';
     }
+    // code...
+}
+
+
+function receiptId()
+{
+    // session_start();
+    $id = $_SESSION['id'];
+    include 'starter.php';
+
+
+    // $oneYearOn = date('Y-m-d', strtotime(date("Y-m-d", $dd) . " + 365 day"));
+    $year = strtok("2022", '-');
+    $gnaccid = uniqid($year, true);
+
+    $gnaccid = uniqid($year, true);
+
+
+    echo $gnaccid;
+
+
+    // code...
 }

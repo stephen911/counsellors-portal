@@ -232,7 +232,7 @@ $(function () {
           swal.showLoading();
         },
       }).then(function (result) {
-        window.location = "ntcreg.php";
+        window.location = "dashboard.php";
       });
     } else if (response == "loginfailed") {
       swal({

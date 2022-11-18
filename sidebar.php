@@ -2,10 +2,10 @@
 
     <li class="side-nav-title side-nav-item">Navigation</li>
 
-    <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
             <i class="uil-home-alt"></i>
-            <!-- <span class="badge bg-success float-end">5</span> -->
+            
             <span> Dashboards </span>
         </a>
         <div class="collapse" id="sidebarDashboards">
@@ -27,9 +27,9 @@
                 </li>
             </ul>
         </div>
-    </li>
+    </li> -->
 
-    <li class="side-nav-title side-nav-item">Apps</li>
+    <!-- <li class="side-nav-title side-nav-item">Apps</li> -->
 
     <!-- <li class="side-nav-item">
     <a href="apps-calendar.php" class="side-nav-link">
@@ -159,7 +159,7 @@
     </a>
 </li> -->
 
-    <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
             <i class="uil-clipboard-alt"></i>
             <span> Tasks </span>
@@ -178,7 +178,7 @@
                 </li>
             </ul>
         </div>
-    </li>
+    </li> -->
 
     <!-- <li class="side-nav-item">
     <a href="apps-file-manager.php" class="side-nav-link">
@@ -187,7 +187,7 @@
     </a>
 </li> -->
 
-    <li class="side-nav-title side-nav-item">Custom</li>
+    <!-- <li class="side-nav-title side-nav-item">Custom</li> -->
 
     <!-- <li class="side-nav-item">
     <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages"
@@ -297,17 +297,17 @@
 </li> -->
 
     <li class="side-nav-item">
-        <a href="landing.php"  class="side-nav-link">
-            <i class="uil-globe"></i>
+        <a href="dashboard.php"  class="side-nav-link">
+        <i class="uil-home-alt"></i>
             <span class="badge bg-secondary text-light float-end">New</span>
-            <span> Landing </span>
+            <span> Dashboard </span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="edit.php"  class="side-nav-link">
             <i class="uil-globe"></i>
             <span class="badge bg-secondary text-light float-end">New</span>
-            <span> Edit Info </span>
+            <span> Edit Info</span>
         </a>
     </li>
     <li class="side-nav-item">
@@ -322,6 +322,13 @@
             <i class="uil-globe"></i>
             <span class="badge bg-secondary text-light float-end">New</span>
             <span> Certificate </span>
+        </a>
+    </li>
+    <li class="side-nav-item">
+        <a href="receipt.php"  class="side-nav-link">
+            <i class="uil-globe"></i>
+            <span class="badge bg-secondary text-light float-end">New</span>
+            <span> Receipt </span>
         </a>
     </li>
 
@@ -355,7 +362,7 @@
         </div>
     </li> -->
 
-    <li class="side-nav-title side-nav-item mt-1">Components</li>
+    <!-- <li class="side-nav-title side-nav-item mt-1">Components</li> -->
 
     <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
@@ -604,7 +611,7 @@
         </div>
     </li> -->
 
-    <li class="side-nav-item">
+    <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false" aria-controls="sidebarForms" class="side-nav-link">
             <i class="uil-document-layout-center"></i>
             <span> Forms </span>
@@ -650,7 +657,7 @@
                 </li>
             </ul>
         </div>
-    </li>
+    </li> -->
 
     <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarMaps" aria-expanded="false" aria-controls="sidebarMaps" class="side-nav-link">

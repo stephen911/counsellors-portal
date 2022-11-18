@@ -74,7 +74,7 @@ $user = members();
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
                         <a href="pages-profile.php">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42"
+                            <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42"
                                 class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name"><strong><?php echo $user['name'] ; ?></strong></span>
                         </a>
@@ -140,7 +140,7 @@ $user = members();
                                                 <div class="row align-items-center">
                                                     <div class="col-auto">
                                                         <div class="avatar-lg">
-                                                            <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle img-thumbnail">
+                                                            <img src="uploads/<?php echo $user['passport'] ; ?>" alt="" class="rounded-circle img-thumbnail">
                                                         </div>
                                                     </div>
                                                     <div class="col">
@@ -150,12 +150,12 @@ $user = members();
     
                                                             <ul class="mb-0 list-inline text-light">
                                                                 <li class="list-inline-item me-3">
-                                                                    <h5 class="mb-1 text-white">$ 25,184</h5>
-                                                                    <p class="mb-0 font-13 text-white-50">Total Revenue</p>
+                                                                    <h5 class="mb-1 text-white"><?php echo $user['tdate'] ; ?></h5>
+                                                                    <p class="mb-0 font-13 text-white-50">Training Date</p>
                                                                 </li>
                                                                 <li class="list-inline-item">
-                                                                    <h5 class="mb-1 text-white">5482</h5>
-                                                                    <p class="mb-0 font-13 text-white-50">Number of Orders</p>
+                                                                    <h5 class="mb-1 text-white"><?php echo $user['contact'] ; ?></h5>
+                                                                    <p class="mb-0 font-13 text-white-50">Contact</p>
                                                                 </li>
                                                             </ul>
                                                         </div>

@@ -1,7 +1,7 @@
 <?php
 include 'functions.php';
-include 'yolkpay.php';
-$yolk = new YolkPay();
+// include 'yolkpay.php';
+// $yolk = new YolkPay();
 
 checker();
 $user = members();
@@ -15,7 +15,7 @@ $user = members();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | GNACC - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>GNACC - Receipt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -74,7 +74,7 @@ $user = members();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="pages-profile.php">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
                 </div>
@@ -104,131 +104,161 @@ $user = members();
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
-
         <div class="content-page">
-            <div class="content">
+                <div class="content">
 
-                <!-- Start Content-->
-                <div class="container-fluid">
+                    <!-- Start Content-->
+                    <div class="container-fluid">
 
-                    <!-- start page title -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="page-title-box">
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
-                                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
-                                    </ol>
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                                            <li class="breadcrumb-item active">Receipt</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Receipt</h4>
                                 </div>
-                                <h4 class="page-title">Payment</h4>
                             </div>
                         </div>
-                    </div>
-                    <!-- end page title -->
+                        <!-- end page title -->
 
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
 
-
-                    <!-- Form row -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    
-
-                                    <?php
-                            if ($user['paystatus'] == '' && $user['existing'] == 'yes') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
-                                        <div class="card-body">
-                                            <div class="media align-items-center">
-                                            <h4 class="header-title">Payment</h4>
-                                            <p class="text-muted font-14">
-                                                Renew your membership here
-                                            </p>
-                                                <div class="col-sm-12">
-                                                    ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
-                                                    ' . $yolk->pay("Renew") . '
-                                                </div>
+                                        <!-- Receipt Logo-->
+                                        <div class="clearfix">
+                                            <div class="float-start mb-3">
+                                                <img src="assets/images/logo.png" alt="dark logo" height="42">
+                                            </div>
+                                            <div class="float-end">
+                                                <h4 class="m-0 d-print-none">Receipt</h4>
                                             </div>
                                         </div>
-                                    </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Certificated') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
-                                        <div class="card-body">
-                                            <div class="media align-items-center">
-                                            <h4 class="header-title">Payment</h4>
-                                            <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
-                                            </p>
-                                                <div class="col-sm-12">
-                                                    ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 250, $ref = '') . '
-                                                    ' . $yolk->pay("Pay Now") . '
+
+                                        <!-- Receipt Detail-->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                
+                                                <div class="float-end mt-3">
+                                                    <p><b>Hello, <?php echo $user['name']; ?></b></p>
+                                                    <p class="text-muted font-13">Thank you!. Please Go ahead and download your <a href="cert.php"> certificate </a>, and do not hesitate to contact us with any questions.</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Associate') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
-                                        <div class="card-body">
-                                            <div class="media align-items-center">
-                                            <h4 class="header-title">Payment</h4>
-                                            <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
-                                            </p>
-                                                <div class="col-sm-12">
-                                                    ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 300, $ref = '') . '
-                                                    ' . $yolk->pay("Pay Now") . '
+            
+                                            </div><!-- end col -->
+                                            <div class="col-sm-4 offset-sm-2">
+                                                <div class="mt-3 float-sm-end">
+                                                    <!-- <p class="font-13"><strong>Transaction Date: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; </?//php  transactionsdate(); ?></span></p> -->
+                                                    <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p>
+                                                    <p class="font-13"><strong>Transaction ID: </strong> <span class="float-end"><?php  receiptId(); ?></span></p>
                                                 </div>
-                                            </div>
+                                            </div><!-- end col -->
                                         </div>
-                                    </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Student') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
-                                        <div class="card-body">
-                                            <div class="media align-items-center">
-                                            <h4 class="header-title">Payment</h4>
-                                            <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
-                                            </p>
-                                                <div class="col-sm-12">
-                                                    ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
-                                                    ' . $yolk->pay("Pay Now") . '
+                                        <!-- end row -->
+            
+                                        <div class="row mt-6">
+                                            <div class="col-sm-6">
+                                                <h6>Billing Info</h6>
+                                                <address>
+                                                    <?php echo $user['name'] ?><br>
+                                                    <?php echo $user['contact'] ?><br>
+                                                    <!-- San Franisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890c -->
+                                                </address>
+                                            </div> <!-- end col-->
+            
+                                            <!-- <div class="col-sm-4">
+                                                <h6>Shipping Address</h6>
+                                                <address>
+                                                    Cooper Hobson<br>
+                                                    795 Folsom Ave, Suite 600<br>
+                                                    San Francisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                </address>
+                                            </div>  -->
+            
+                                            <div class="col-sm-6">
+                                                <div class="text-sm-end">
+                                                    <img src="assets/images/barcode.png" alt="barcode-image" class="img-fluid me-2" />
                                                 </div>
-                                            </div>
+                                            </div> <!-- end col-->
+                                        </div>    
+                                        <!-- end row -->        
+    
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table mt-4">
+                                                        <thead>
+                                                        <tr><th>#</th>
+                                                            <th>Membership Type</th>
+                                                            <th>Transaction Date</th>
+                                                            <th>Amount</th>
+                                                            <th class="text-end">Total</th>
+                                                        </tr></thead>
+                                                        <tbody>
+                                                        
+                                                       
+                                                        <?php transactions($_SESSION['id']); ?>
+                                                       
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- end table-responsive-->
+                                            </div> <!-- end col -->
                                         </div>
-                                    </div>';
-                            }
-                            
-                            else {
-                                echo '';
-                            }
+                                        <!-- end row -->
 
-                            ?>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="clearfix pt-3">
+                                                    <h6 class="text-muted">Contact Us:</h6>
+                                                    <small>
+                                                        +233 24 499 6991
+                                                    </small>
+                                                </div>
+                                            </div> <!-- end col -->
+                                            <div class="col-sm-6">
+                                                <div class="float-end mt-3 mt-sm-0">
+                                                    <p><b>Sub-total:</b> <span class="float-end"><?php  ?></span></p>
+                                                    <!-- <p><b>VAT (12.5):</b> <span class="float-end">$515.00</span></p> -->
+                                                    <h3><?php echo 'Gh₵ '. transactionstotal(); ?></h3>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div> <!-- end col -->
+                                        </div>
+                                        <!-- end row-->
+    
+                                        <div class="d-print-none mt-4">
+                                            <div class="text-end">
+                                                <a href="javascript:window.print()" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print</a>
+                                                <!-- <a href="javascript: void(0);" class="btn btn-info">Submit</a> -->
+                                            </div>
+                                        </div>   
+                                        <!-- end buttons -->
 
-                                    
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card -->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row -->
+                        
+                    </div> <!-- container -->
 
+                </div> <!-- content -->
 
+                <!-- Footer Start -->
+                <?php include "footer.php" ?>
+                <!-- end Footer -->
 
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
+            </div>
 
-                </div> <!-- container -->
-
-            </div> <!-- content -->
-
-            <!-- Footer Start -->
-            <?php include "footer.php" ?>
-            <!-- end Footer -->
-
-        </div>
+       
 
         <!-- ============================================================== -->
         <!-- End Page content -->
