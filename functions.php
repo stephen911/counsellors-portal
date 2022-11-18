@@ -540,7 +540,7 @@ function transactions()
     
                                                                 </tr>
             ';
-                } else if ($row['existing'] == "yes" && $row2['amount'] == 150  && $row['membership'] == "Student") {
+                } else if ($row2['amount'] == 150  && $row['membership'] == "Student") {
                     echo '<tr>
                                                                 <td>
                                                                     <b>' . $counter . '</b> <br/>
