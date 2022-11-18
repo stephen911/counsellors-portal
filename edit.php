@@ -74,7 +74,7 @@ $user = members();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="pages-profile.php">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
                 </div>

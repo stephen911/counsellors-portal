@@ -276,9 +276,10 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
         $dd = date('jS F, Y');
-        $end = date('jS F, Y', strtotime('+5 years'));
-        $year = strtok($dd, '-');
-        $gnaccid = uniqid($year, true);
+        $end = date('jS F, Y', strtotime('+1 years'));
+       
+        
+
         $old = $tdate;
 
         $tdate = date('jS F, Y', strtotime($old));
@@ -289,19 +290,32 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-        $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,heard,email,password,gnaccid,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year','$heard','$email','$password','$gnaccid','$end','$existing','$dd' ) ");
+        $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd' ) ");
 
         if ($ins) {
             $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
             $row = mysqli_fetch_array($sel);
-            // $idm = $row['id'];
-            // $sql = "INSERT INTO transactions (uid) VALUES ('$idm')";
-            // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
+
+            $year = date('y');
+            $gnaccid = $year . "-0" . $row['id'] ;
+            if($row['id'] > 99 && $row['id'] < 1000){
+                $gnaccid = $year . "-0" . $row['id'] ;
+            }else if($row['id'] <= 99){
+                $gnaccid = $year . "-00" . $row['id'] ;
+            }else{
+                $gnaccid = $year . "-" . $row['id'] ;
+            }
+            
+            $idw =  $row['id'];
+
+           
+            // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
+            $sqlid = mysqli_query($conn, "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw");
 
 
-            // Execute query
+            //Execute query
 
-            // mysqli_query($conn, $sql);
+            mysqli_query($conn, $sqlid);
             session_start();
             $_SESSION['id'] = $row['id'];
 
@@ -438,6 +452,7 @@ function payment($uid, $ref, $amount)
 {
     include 'starter.php';
     $dateadded = date('jS F,Y');
+    $end = date('jS F, Y', strtotime('+1 years'));
 
 
 
@@ -445,7 +460,7 @@ function payment($uid, $ref, $amount)
 
 
     $ins = mysqli_query($conn, "INSERT INTO transactions (uid,transid,amount,dateadded) VALUES('$uid','$ref','$amount','$dateadded')");
-    $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid' AND existing = 'yes' WHERE id ='$uid'");
+    $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid', existing = 'yes', expiry = '$end' WHERE id ='$uid'");
 
     if ($uid == "") {
         $goo = "Empty uid: " . $uid;

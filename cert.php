@@ -74,7 +74,7 @@ $user = members();
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
                     <a href="pages-profile.php">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
                 </div>
@@ -149,12 +149,12 @@ $user = members();
 
                                                         <ul class="mb-0 list-inline text-light">
                                                             <li class="list-inline-item me-3">
-                                                                <h5 class="mb-1 text-white">$ 25,184</h5>
-                                                                <p class="mb-0 font-13 text-white-50">Total Revenue</p>
+                                                                <h5 class="mb-1 text-white"><?php echo $user['tdate']; ?></h5>
+                                                                <p class="mb-0 font-13 text-white-50">Training Date</p>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <h5 class="mb-1 text-white">5482</h5>
-                                                                <p class="mb-0 font-13 text-white-50">Number of Orders</p>
+                                                                <h5 class="mb-1 text-white"><?php echo $user['contact']; ?></h5>
+                                                                <p class="mb-0 font-13 text-white-50">Contact</p>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -167,8 +167,7 @@ $user = members();
                                                 <a href="#" id="download-btn" class="btn btn-light">
                                                     <i class="mdi mdi-account-edit me-1"></i> Download
                                                 </a>
-                                                <a href="#" id="download-btn"
-                                                       class="btn btn-success float-right">Download</a>
+
                                             </div>
                                         </div> <!-- end col-->
                                     </div> <!-- end row -->
@@ -184,13 +183,13 @@ $user = members();
                     <canvas id="canvas" style="border:1px solid #d3d3d3;"></canvas>
 
                     <input id="name" type='hidden' value="<?php echo $user['name']; ?>">
-                            <input id="district" type='hidden' value="<?php echo $user['gnaccid']; ?>">
-                            <input id="dateadded" type='hidden' value="<?php echo $user['expiry']; ?>">
-
-                    
+                    <input id="district" type='hidden' value="<?php echo $user['gnaccid']; ?>">
+                    <input id="dateadded" type='hidden' value="<?php echo $user['expiry']; ?>">
 
 
-                    
+
+
+
                     <!-- end row -->
 
                 </div> <!-- container -->
