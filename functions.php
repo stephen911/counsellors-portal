@@ -263,20 +263,21 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                     $row = mysqli_fetch_array($sel);
 
                     $year = strval(date('y'));
-                    // $gnaccid = $year . "-0" . $row['id'] ;
+                    $gnaccid = $year . "-0" . $row['id'] ;
                     if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
-                        $gnaccid = $year . "-0" . $row['id'];
+                        $gnaccid = $year . '-0' . $row['id'];
                     } else if (intval($row['id']) < 100) {
-                        $gnaccid = $year . "-00" . $row['id'];
+                        $gnaccid = $year . '-00' . $row['id'];
                     } else {
-                        $gnaccid = $year . "-" . $row['id'];
+                        $gnaccid = $year . '-' . $row['id'];
                     }
+                    // $gnaccid = $year . '-00' . $row['id'];
 
                     $idw =  $row['id'];
 
 
                     // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
-                    $sqlid = "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw";
+                    $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
 
 
                     //Execute query
@@ -311,7 +312,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
             if (move_uploaded_file($tempname, $folder)) {
 
                 $dd = date('jS F, Y');
-                $end = date('jS F, Y', strtotime('+1 years'));
+                $end = "N/A";//date('jS F, Y', strtotime('+1 years'));
         
         
         
@@ -330,22 +331,22 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
                     $row = mysqli_fetch_array($sel);
-        
                     $year = strval(date('y'));
                     // $gnaccid = $year . "-0" . $row['id'] ;
                     if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
-                        $gnaccid = $year . "-0" . $row['id'];
-                    } else if (intval($row['id']) <= 99) {
-                        $gnaccid = $year . "-00" . $row['id'];
+                        $gnaccid = $year . '-0' . $row['id'];
+                    } else if (intval($row['id']) < 100) {
+                        $gnaccid = $year . '-00' . $row['id'];
                     } else {
-                        $gnaccid = $year . "-" . $row['id'];
+                        $gnaccid = $year . '-' . $row['id'];
                     }
-        
+                    // $gnaccid = $year . '-00' . $row['id'];
+
                     $idw =  $row['id'];
         
         
                     // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
-                    $sqlid = "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw";
+                    $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
 
                     // $sql = "INSERT INTO members (passport) VALUES ('$filename')";
             // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
