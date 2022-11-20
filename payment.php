@@ -194,7 +194,7 @@ $user = members();
                                             Make Payment as a(an) ' . $user['membership'] . ' Counsellor (Gh₵ 150)                                            </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 0.10, $ref = '') . '
+                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
                                                     ' . $yolk->pay("Pay Now") . '
                                                 </div>
                                             </div>
