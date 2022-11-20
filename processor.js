@@ -146,8 +146,8 @@ $(function () {
     } else if (response == "Updated Successfully") {
       swal({
         title: "Congratulations!",
-        html: "You are duly registered for the Counselling training. <br><b>Proceed to make Payment to Confirm Participation. Call 0541 369 429 / 0208 496 496</b><br> An email has been sent to your mail.",
-        timer: 3000,
+        html: "Your info has been Updated Successfully",
+        timer: 1000,
         type: "success",
         padding: "2em",
         onOpen: function () {
@@ -211,7 +211,7 @@ $(function () {
     } else if (response.trim() == "updatesuccess") {
       swal({
         title: "Congratulations",
-        text: "You are duly registered for the Counselling training. Proceed to make payment  to confirm your participation  Call 0541 369 429 / 0208 496 496 for any assistance. Thanks",
+        text: "Update Successful",
         timer: 5000,
         type: "success",
         padding: "2em",

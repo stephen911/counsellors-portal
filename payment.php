@@ -45,22 +45,22 @@ $user = members();
         <div class="leftside-menu">
 
             <!-- Logo Light -->
-            <a href="index-2.php" class="logo logo-light">
+            <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-lg">
                     <img src="assets/images/logo.png" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
-            <a href="index-2.php" class="logo logo-dark">
+            <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                    <img src="assets/images/logo.png" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
@@ -73,8 +73,8 @@ $user = members();
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
-                    <a href="pages-profile.php">
-                        <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                    <a href="#">
+                        <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
                 </div>
@@ -135,16 +135,16 @@ $user = members();
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
 
                                     <?php
-                            if ($user['paystatus'] == '' && $user['existing'] == 'yes') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
+                                    if ($user['paystatus'] == '' && $user['existing'] == 'yes') {
+                                        echo '<div class="card border-left-3 border-left-danger card-2by1">
                                         <div class="card-body">
                                             <div class="media align-items-center">
                                             <h4 class="header-title">Payment</h4>
                                             <p class="text-muted font-14">
-                                                Renew your membership here
+                                                Renew your membership here as a(an) ' . $user['membership'] . ' Counsellor
                                             </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
@@ -154,13 +154,13 @@ $user = members();
                                             </div>
                                         </div>
                                     </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Certificated') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
+                                    } else if ($user['paystatus'] == '' && $user['membership'] == 'Certificated') {
+                                        echo '<div class="card border-left-3 border-left-danger card-2by1">
                                         <div class="card-body">
                                             <div class="media align-items-center">
                                             <h4 class="header-title">Payment</h4>
                                             <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
+                                            Make Payment as a(an) ' . $user['membership'] . ' Counsellor (Gh₵ 250)
                                             </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
@@ -170,14 +170,13 @@ $user = members();
                                             </div>
                                         </div>
                                     </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Associate') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
+                                    } else if ($user['paystatus'] == '' && $user['membership'] == 'Associate') {
+                                        echo '<div class="card border-left-3 border-left-danger card-2by1">
                                         <div class="card-body">
                                             <div class="media align-items-center">
                                             <h4 class="header-title">Payment</h4>
                                             <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
-                                            </p>
+                                            Make Payment as a(an) ' . $user['membership'] . ' Counsellor (Gh₵ 300)                                           </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
                                                     ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 300, $ref = '') . '
@@ -186,31 +185,41 @@ $user = members();
                                             </div>
                                         </div>
                                     </div>';
-                            }else if ($user['paystatus'] == '' && $user['membership'] == 'Student') {
-                                echo '<div class="card border-left-3 border-left-danger card-2by1">
+                                    } else if ($user['paystatus'] == '' && $user['membership'] == 'Student') {
+                                        echo '<div class="card border-left-3 border-left-danger card-2by1">
                                         <div class="card-body">
                                             <div class="media align-items-center">
                                             <h4 class="header-title">Payment</h4>
                                             <p class="text-muted font-14">
-                                                No payment has been made. Please make payment
-                                            </p>
+                                            Make Payment as a(an) ' . $user['membership'] . ' Counsellor (Gh₵ 150)                                            </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
+                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 0.10, $ref = '') . '
                                                     ' . $yolk->pay("Pay Now") . '
                                                 </div>
                                             </div>
                                         </div>
                                     </div>';
-                            }
-                            
-                            else {
-                                echo '';
-                            }
+                                    } else if ($user['paystatus'] == 'paid') {
+                                        echo '<div class="card border-left-3 border-left-danger card-2by1">
+                                        <div class="card-body">
+                                            <div class="media align-items-center">
+                                            <h4 class="header-title">Payment</h4>
+                                            <p class="text-muted font-14">
+                                            Renew your membership here as a(an) ' . $user['membership'] . ' Counsellor
+                                            <div class="col-sm-12">
+                                                    ' . $yolk->handler() . '
+                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 0.10, $ref = '') . '
+                                                    ' . $yolk->pay("Pay Now") . '
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+                                    }
 
-                            ?>
+                                    ?>
 
-                                    
+
 
 
 

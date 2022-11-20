@@ -15,7 +15,7 @@ $user = members();
 <!-- Mirrored from coderthemes.com/hyper_2/modern/pages-profile.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:18:05 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Profile | GNACC - Responsive Bootstrap 5 Admin Dashboard</title>
+        <title>Profile | GNACC - Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -45,22 +45,22 @@ $user = members();
             <div class="leftside-menu">
 
                 <!-- Logo Light -->
-                <a href="index-2.php" class="logo logo-light">
+                <a href="dashboard.php" class="logo logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/logo.png" alt="logo" height="22">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="small logo" height="22">
+                        <img src="assets/images/logo.png" alt="small logo" height="22">
                     </span>
                 </a>
 
                 <!-- Logo Dark -->
-                <a href="index-2.php" class="logo logo-dark">
+                <a href="dashboard.php" class="logo logo-dark">
                     <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                        <img src="assets/images/logo.png" alt="dark logo" height="22">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
+                        <img src="assets/images/logo.png" alt="small logo" height="22">
                     </span>
                 </a>
 
@@ -73,7 +73,7 @@ $user = members();
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
-                        <a href="pages-profile.php">
+                        <a href="#">
                             <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42"
                                 class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name"><strong><?php echo $user['name'] ; ?></strong></span>
@@ -118,8 +118,8 @@ $user = members();
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                                            <li class="breadcrumb-item"><a href="#">GNACC</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                                             <li class="breadcrumb-item active">Profile</li>
                                         </ol>
                                     </div>
@@ -154,8 +154,14 @@ $user = members();
                                                                     <p class="mb-0 font-13 text-white-50">Training Date</p>
                                                                 </li>
                                                                 <li class="list-inline-item">
-                                                                    <h5 class="mb-1 text-white"><?php echo $user['contact'] ; ?></h5>
-                                                                    <p class="mb-0 font-13 text-white-50">Contact</p>
+                                                                    <h5 class="mb-1 text-white"><?php echo $user['membership'] ; ?> Counsellor</h5>
+                                                                    <p class="mb-0 font-13 text-white-50">Membership Type</p>
+                                                                </li>
+                                                                
+                                                                
+                                                                <li class="list-inline-item">
+                                                                    <h5 class="mb-1 text-white"><?php echo $user['expiry'] ; ?></h5>
+                                                                    <p class="mb-0 font-13 text-white-50">Certificate Expiry Date</p>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -185,7 +191,7 @@ $user = members();
                                                 <i class="ri-shopping-basket-2-line float-end text-muted"></i>
                                                 <h6 class="text-muted text-uppercase mt-0">Nationality</h6>
                                                 <h2 class="m-b-20"><?php echo $user['nationality'] ; ?></h2>
-                                                <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span>
+                                                <!-- <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous period</span> -->
                                             </div> <!-- end card-body-->
                                         </div> <!--end card-->
                                     </div><!-- end col -->
@@ -196,7 +202,7 @@ $user = members();
                                                 <i class="ri-archive-line float-end text-muted"></i>
                                                 <h6 class="text-muted text-uppercase mt-0">Region</h6>
                                                 <h3 class="m-b-20"><span><?php echo $user['region'] ; ?></span></h3>
-                                                <span class="badge bg-danger"> -29% </span> <span class="text-muted">From previous period</span>
+                                                <!-- <span class="badge bg-danger"> -29% </span> <span class="text-muted">From previous period</span> -->
                                             </div> <!-- end card-body-->
                                         </div> <!--end card-->
                                     </div><!-- end col -->
@@ -207,7 +213,7 @@ $user = members();
                                                 <i class="ri-vip-diamond-line float-end text-muted"></i>
                                                 <h6 class="text-muted text-uppercase mt-0">Occupation</h6>
                                                 <h2 class="m-b-20"><?php echo $user['occupation'] ; ?></h2>
-                                                <span class="badge bg-primary"> +89% </span> <span class="text-muted">Last year</span>
+                                                <!-- <span class="badge bg-primary"> +89% </span> <span class="text-muted">Last year</span> -->
                                             </div> <!-- end card-body-->
                                         </div> <!--end card-->
                                     </div><!-- end col -->
@@ -220,9 +226,9 @@ $user = members();
                                 <!-- Personal-Information -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                                        <h4 class="header-title mt-0 mb-3">Profile</h4>
                                         <p class="text-muted font-13">
-                                            Hye, I’m Michael Franklin residing in this beautiful world. I create websites and mobile apps with great UX and UI design. I have done work with big companies like Nokia, Google and Yahoo. Meet me or Contact me for any queries. One Extra line for filling space. Fill as many you want.
+                                            Hey, I’m <?php echo $user['name'] ; ?> residing at <?php echo $user['gpsAddress'] ; ?>. I'm a <?php echo $user['maritalStatus'] ; ?> <?php echo $user['counsellingArea'] ; ?> counsellor. I prefer a T-Shirt with a(an) <?php echo $user['color'] ; ?> colour of size <?php echo $user['size'] ; ?>. I heard about this association from <?php echo $user['heard'] ; ?>.
                                         </p>
 
                                         <hr/>
@@ -235,15 +241,16 @@ $user = members();
                                             <p class="text-muted"><strong>Email :</strong> <span class="ms-2"><?php echo $user['email'] ; ?></span></p>
 
                                             <p class="text-muted"><strong>Location :</strong> <span class="ms-2"><?php echo $user['gpsAddress'] ; ?></span></p>
+                                            <p class="text-muted"><strong>Membership Type :</strong> <span class="ms-2"><?php echo $user['membership'] ; ?> Counsellor</span></p>
 
-                                            <p class="text-muted"><strong>Languages :</strong>
+                                            <!-- <p class="text-muted"><strong>Languages :</strong>
                                                 <span class="ms-2"> English, German, Spanish </span>
-                                            </p>
-                                            <p class="text-muted mb-0" id="tooltip-container"><strong>Elsewhere :</strong>
+                                            </p> -->
+                                            <!-- <p class="text-muted mb-0" id="tooltip-container"><strong>Elsewhere :</strong>
                                                 <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Facebook"><i class="mdi mdi-facebook"></i></a>
                                                 <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Twitter"><i class="mdi mdi-twitter"></i></a>
                                                 <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Skype"><i class="mdi mdi-skype"></i></a>
-                                            </p>
+                                            </p> -->
 
                                         </div>
                                     </div>

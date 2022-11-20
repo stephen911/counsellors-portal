@@ -36,7 +36,7 @@
                     <div class="card">
                         <!-- Logo-->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
-                            <a href="index-2.php">
+                            <a href="dashboard.php">
                                 <span><img src="assets/images/logo.png" alt="logo" height="40"></span>
                             </a>
                         </div>
@@ -51,7 +51,7 @@
                             <form action="dashboard.php" novalidate method="get" class="register" enctype='multipart/form-data'>
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Title</label>
-                                    <select class="form-select" id="example-select" name="title">
+                                    <select class="form-select" id="example-select" name="title" required="required">
                                         <option selected></option>
                                         <option>Rev.</option>
                                         <option>Mr.</option>
@@ -67,19 +67,19 @@
 
                                 <div class="mb-3">
                                     <label for="fullname" class="form-label">First Name</label>
-                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
+                                    <input class="form-control" required="required" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
                                 </div>
                                 <div class="mb-3">
                                     <label for="fullname" class="form-label">Last Name</label>
-                                    <input class="form-control" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
+                                    <input class="form-control" required="required" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
                                 </div>
                                 <div class="mb-3">
                                     <label for="fullname" class="form-label">Other Names</label>
-                                    <input class="form-control" type="text" id="fullname" placeholder="Other Name" required name="oname">
+                                    <input class="form-control" required="required" type="text" id="fullname" placeholder="Other Name" required name="oname">
                                 </div>
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Gender</label>
-                                    <select class="form-select" id="example-select" name="gender">
+                                    <select class="form-select" required="required" id="example-select" name="gender">
                                         <option selected></option>
                                         <option>Male</option>
                                         <option>Female</option>
@@ -88,38 +88,38 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="example-date" class="form-label">Date</label>
-                                    <input class="form-control" id="example-date" type="date" name="tdate">
+                                    <input class="form-control" required="required" id="example-date" type="date" name="tdate">
                                 </div>
 
 
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Contact Number</label>
-                                    <input class="form-control" type="text" id="contact" required placeholder="Enter your phone Number" name="contact">
+                                    <input class="form-control" required="required" type="text" id="contact" required placeholder="Enter your phone Number" name="contact">
                                 </div>
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">WhatsApp Number</label>
-                                    <input class="form-control" type="text" id="whatsapp" required placeholder="Enter your WhatsApp Number" name="wnumber">
+                                    <input class="form-control" required="required" type="text" id="whatsapp" required placeholder="Enter your WhatsApp Number" name="wnumber">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="Emergency Contact Number" class="form-label">Emergency Contact Number</label>
-                                    <input class="form-control" type="text" id="emergency" required placeholder="Enter your Emergency contact Number" name="enumber">
+                                    <input class="form-control" required="required" type="text" id="emergency" required placeholder="Enter your Emergency contact Number" name="enumber">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="Emergency Contact Number" class="form-label">Residential Digital Address</label>
-                                    <input class="form-control" type="text" id="emergency" required placeholder="Enter your GPS Address" name="address">
+                                    <input class="form-control" required="required" type="text" id="emergency" required placeholder="Enter your GPS Address" name="address">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Occupation</label>
-                                    <input class="form-control" type="text" id="occupation" required placeholder="Enter your Occupation" name="occupation">
+                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="Enter your Occupation" name="occupation">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Marital Status</label>
-                                    <select class="form-select" id="example-select" name="mstatus">
+                                    <select class="form-select" required="required" id="example-select" name="mstatus">
                                         <option selected></option>
                                         <option>Single</option>
                                         <option>Married</option>
@@ -129,7 +129,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Region</label>
-                                    <select class="form-select" id="example-select" name="region">
+                                    <select class="form-select" required="required" id="example-select" name="region">
                                         <option selected value="">
                                         </option>
 
@@ -156,7 +156,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Nationality</label>
-                                    <select class="form-select" id="example-select" name="nationality">
+                                    <select class="form-select" required="required" id="example-select" name="nationality">
                                         <option selected></option>
                                         <option>Ghanaian</option>
                                         <option>Foreigner</option>
@@ -166,12 +166,12 @@
 
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Passport Size Picture</label>
-                                    <input type="file" id="example-fileinput" class="form-control" name="passport">
+                                    <input type="file" required="required" id="example-fileinput" class="form-control" name="passport">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Educational Level</label>
-                                    <select class="form-select" id="example-select" name="edulevel">
+                                    <select class="form-select"  required="required" id="example-select" name="edulevel">
                                         <option selected></option>
                                         <option>Senior High Certificate</option>
                                         <option>Diploma Certificate</option>
@@ -186,7 +186,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                    <select class="form-select" id="student-select" name="membership">
+                                    <select class="form-select" required="required" id="student-select" name="membership">
                                         <option selected></option>
                                         <option value="Certificated">Certificated Counsellor</option>
                                         <option value="Associate">Associate Counsellor</option>
@@ -201,7 +201,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
-                                    <select class="form-select" id="example-select" name="area">
+                                    <select class="form-select" required="required" id="example-select" name="area">
                                         <option selected></option>
                                         <option>Marriage and Family</option>
                                         <option>Guidance and Career</option>
@@ -221,7 +221,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Do you have Physical Challenge(s)?</label>
-                                    <select class="form-select" id="example-select" name="challenge">
+                                    <select class="form-select" required="required" id="example-select" name="challenge">
                                         <option selected></option>
                                         <option>Yes</option>
                                         <option>No</option>
@@ -232,7 +232,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">T-Shirt Colour Preference</label>
-                                    <select class="form-select" id="example-select" name="color">
+                                    <select class="form-select" required="required" id="example-select" name="color">
                                         <option selected></option>
                                         <option>Any</option>
                                         <option>White</option>
@@ -245,7 +245,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">T-Shirt Size Preference</label>
-                                    <select class="form-select" id="example-select" name="size">
+                                    <select class="form-select" required="required" id="example-select" name="size">
                                         <option selected></option>
                                         <option>M</option>
                                         <option>L</option>
@@ -271,18 +271,18 @@
                                 <div id="student" style="display: none;">
                                     <div class="mb-3">
                                         <label for="emailaddress" class="form-label">Name of Institution / School</label>
-                                        <input class="form-control" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school">
+                                        <input class="form-control" required="required" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school">
                                     </div>
                                     <div class="mb-3">
                                         <label for="emailaddress" class="form-label">Programme Of Study</label>
-                                        <input class="form-control" type="text" id="programme" required placeholder="Enter your programme of study" name="programme">
+                                        <input class="form-control" required="required" type="text" id="programme" required placeholder="Enter your programme of study" name="programme">
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="datepicker-preview">
                                             <div class="col-lg-6">
                                                 <div class="mb-3 position-relative" id="datepicker6">
                                                     <label class="form-label">Year Of Entry</label>
-                                                    <input type="text" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year">
+                                                    <input type="text" required="required" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year">
                                                 </div>
                                             </div>
                                         </div>
@@ -290,13 +290,13 @@
 
                                     <div class="mb-3">
                                         <label for="example-fileinput" class="form-label">Upload Student ID Card</label>
-                                        <input type="file" id="example-fileinput" class="form-control" name="idcard">
+                                        <input type="file" required="required" id="example-fileinput" class="form-control" name="idcard">
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">How did you hear/Know of this association</label>
-                                    <select class="form-select" id="example-select" name="heard">
+                                    <select class="form-select" required="required" id="example-select" name="heard">
                                         <option selected></option>
                                         <option>GNACC Website</option>
                                         <option>Facebook</option>
@@ -320,14 +320,14 @@
 
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                                    <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small>
+                                    <input type="email" required="required" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                                    <small id="emailHelp" class="form-text text-muted">Please make sure you remember the password to the email you are providing</small>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
+                                        <input type="password"  required="required"id="password" class="form-control" placeholder="Enter your password" name="password">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
@@ -337,7 +337,7 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Confirm Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control" placeholder="Enter your password" name="repass">
+                                        <input type="password" required="required" id="password" class="form-control" placeholder="Enter your password" name="repass">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>

@@ -15,7 +15,7 @@ $user = members();
 
 <head>
     <meta charset="utf-8" />
-    <title>Profile | GNACC - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>Profile | GNACC - Certificate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -45,22 +45,22 @@ $user = members();
         <div class="leftside-menu">
 
             <!-- Logo Light -->
-            <a href="index-2.php" class="logo logo-light">
+            <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-lg">
                     <img src="assets/images/logo.png" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
-            <a href="index-2.php" class="logo logo-dark">
+            <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                    <img src="assets/images/logo.png" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
@@ -73,7 +73,7 @@ $user = members();
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
-                    <a href="pages-profile.php">
+                    <a href="#">
                         <img src="uploads/<?php echo $user['passport']; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
@@ -117,9 +117,9 @@ $user = members();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">GNACC</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                        <li class="breadcrumb-item active">Profile</li>
+                                        <li class="breadcrumb-item"><a href="#">GNACC</a></li>
+                                        <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Certificate</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">Profile</h4>
@@ -139,7 +139,7 @@ $user = members();
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <div class="avatar-lg">
-                                                        <img src="assets/images/users/avatar-2.jpg" alt="" class="rounded-circle img-thumbnail">
+                                                    <img src="uploads/<?php echo $user['passport'] ; ?>" alt="" class="rounded-circle img-thumbnail">
                                                     </div>
                                                 </div>
                                                 <div class="col">

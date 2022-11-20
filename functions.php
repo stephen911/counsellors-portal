@@ -111,7 +111,7 @@ function enrolluser($id, $enroll)
     }
 }
 
-function updateuser($id, $gender, $email, $contact, $telegram, $lincesed, $regnumber, $modality, $ntcemail, $region, $district, $tdate)
+function updateuser($id, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year)
 {
     // include 'mail.php';
 
@@ -134,7 +134,7 @@ function updateuser($id, $gender, $email, $contact, $telegram, $lincesed, $regnu
     // $gg = mysqli_query($conn, "SELECT * FROM members WHERE id = '$id'");
     // $rg = mysqli_fetch_array($gg);
     // $admin = 'New user has registered for ntc programme. name - '.$name.' , contact - '.$contact.'';
-    if (mysqli_query($conn, "UPDATE members SET gender = '$gender', email='$email', contact= '$contact', telegram='$telegram', lincesed='$lincesed', regnumber='$regnumber', modality='$modality', ntcemail='$ntcemail', region='$region', district='$district', tdate='$tdate'  WHERE id='$id'  ")) {
+    if (mysqli_query($conn, "UPDATE members SET gender = '$gender', email='$email', contact= '$contact', whatsapp='$wnumber', tdate = '$tdate', emergency = '$enumber', gpsAddress = '$address', occupation='$occupation',maritalStatus = '$mstatus', region = '$region', nationality = '$nationality', eduLevel = '$edulevel', counsellingArea = '$area', membership = '$membership', phyChallenge='$challenge', color='$color',size='$size',school='$school',programme='$programme',year='$year', tdate='$tdate'  WHERE id='$id'  ")) {
         echo 'updatesuccess';
         // mail('stephendappah1@gmail.com', 'TUCEE '.$subject, $admin.' Duplicate', $headers);
         // mail('kpin463@gmail.com', 'TUCEE '.$subject, $admin.'Duplicate', $headers);
@@ -229,19 +229,67 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-            $sql = "INSERT INTO members (passport,iDCard) VALUES ('$filename', '$filenameid')";
-            // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
+            // $sql = "INSERT INTO members (passport,iDCard) VALUES ('$filename', '$filenameid')";
+            // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
 
 
-            // Execute query
+            // // Execute query
 
-            mysqli_query($conn, $sql);
+            // mysqli_query($conn, $sql);
 
             // Now let's move the uploaded image into the folder: image
 
             if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnameid, $folder1)) {
 
-                echo "";
+                $dd = date('jS F, Y');
+                $end = "N/A";//date('jS F, Y', strtotime('+1 years'));
+
+
+
+                $old = $tdate;
+
+                $tdate = date('jS F, Y', strtotime($old));
+                $existing = "no";
+
+
+
+
+
+
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd' ) ");
+
+                if ($ins) {
+                    $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
+                    $row = mysqli_fetch_array($sel);
+
+                    $year = strval(date('y'));
+                    // $gnaccid = $year . "-0" . $row['id'] ;
+                    if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
+                        $gnaccid = $year . "-0" . $row['id'];
+                    } else if (intval($row['id']) < 100) {
+                        $gnaccid = $year . "-00" . $row['id'];
+                    } else {
+                        $gnaccid = $year . "-" . $row['id'];
+                    }
+
+                    $idw =  $row['id'];
+
+
+                    // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
+                    $sqlid = "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw";
+
+
+                    //Execute query
+
+                    mysqli_query($conn, $sqlid);
+                    session_start();
+                    $_SESSION['id'] = $row['id'];
+
+                    echo 'registered';
+                } else {
+
+
+                }
             } else {
 
                 echo "<h3>  Failed to upload image passport!</h3>";
@@ -250,19 +298,73 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
             $folder = "uploads/" . $filename;
 
-            $sql = "INSERT INTO members (passport) VALUES ('$filename')";
-            // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
+            // $sql = "INSERT INTO members (passport) VALUES ('$filename')";
+            // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
 
 
-            // Execute query
+            // // Execute query
 
-            mysqli_query($conn, $sql);
+            // mysqli_query($conn, $sql);
 
             // Now let's move the uploaded image into the folder: image
 
             if (move_uploaded_file($tempname, $folder)) {
 
-                echo "";
+                $dd = date('jS F, Y');
+                $end = date('jS F, Y', strtotime('+1 years'));
+        
+        
+        
+                $old = $tdate;
+        
+                $tdate = date('jS F, Y', strtotime($old));
+                $existing = "no";
+        
+        
+        
+        
+        
+        
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd' ) ");
+        
+                if ($ins) {
+                    $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
+                    $row = mysqli_fetch_array($sel);
+        
+                    $year = strval(date('y'));
+                    // $gnaccid = $year . "-0" . $row['id'] ;
+                    if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
+                        $gnaccid = $year . "-0" . $row['id'];
+                    } else if (intval($row['id']) <= 99) {
+                        $gnaccid = $year . "-00" . $row['id'];
+                    } else {
+                        $gnaccid = $year . "-" . $row['id'];
+                    }
+        
+                    $idw =  $row['id'];
+        
+        
+                    // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
+                    $sqlid = "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw";
+
+                    // $sql = "INSERT INTO members (passport) VALUES ('$filename')";
+            // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
+
+
+            // // Execute query
+
+            // mysqli_query($conn, $sql);
+        
+        
+                    //Execute query
+        
+                    mysqli_query($conn, $sqlid);
+                    session_start();
+                    $_SESSION['id'] = $row['id'];
+        
+                    echo 'registered';
+                } else {
+                }
             } else {
 
                 echo "<h3>  Failed to upload image id!</h3>";
@@ -275,53 +377,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-        $dd = date('jS F, Y');
-        $end = date('jS F, Y', strtotime('+1 years'));
        
-        
-
-        $old = $tdate;
-
-        $tdate = date('jS F, Y', strtotime($old));
-        $existing = "no";
-
-
-
-
-
-
-        $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd' ) ");
-
-        if ($ins) {
-            $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
-            $row = mysqli_fetch_array($sel);
-
-            $year = date('y');
-            $gnaccid = $year . "-0" . $row['id'] ;
-            if($row['id'] > 99 && $row['id'] < 1000){
-                $gnaccid = $year . "-0" . $row['id'] ;
-            }else if($row['id'] <= 99){
-                $gnaccid = $year . "-00" . $row['id'] ;
-            }else{
-                $gnaccid = $year . "-" . $row['id'] ;
-            }
-            
-            $idw =  $row['id'];
-
-           
-            // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
-            $sqlid = mysqli_query($conn, "UPDATE members SET gnaccid = $gnaccid WHERE id = $idw");
-
-
-            //Execute query
-
-            mysqli_query($conn, $sqlid);
-            session_start();
-            $_SESSION['id'] = $row['id'];
-
-            echo 'registered';
-        } else {
-        }
 
 
         // if (isset($_POST['submit']) && isset($_FILES[$passport] ) && isset($_FILES[$idcard])) {
@@ -532,6 +588,8 @@ function transactions()
                                                                 <td><b>' . $row['membership'] . ' Counsellor (Renewal)</b></td> 
 
                                                                 <td><b>' . $row2['dateadded'] . '</b> </td>
+
+                                                                <td><b>' . $row2['transid'] . '</b> </td>
                                                                 
                                                                 ';
 
@@ -565,6 +623,8 @@ function transactions()
                                                                 <td><b>' . $row['membership'] . ' Counsellor</b></td> 
 
                                                                 <td><b>' . $row2['dateadded'] . '</b> </td>
+
+                                                                <td><b>' . $row2['transid'] . '</b> </td>
                                                                 
                                                                 ';
 
@@ -597,6 +657,7 @@ function transactions()
                                                                 
                                                                 <td><b>' . $row['membership'] . ' Counsellor</b></td>
                                                                 <td><b>' . $row2['dateadded'] . '</b> </td>
+                                                                <td><b>' . $row2['transid'] . '</b> </td>
                                                                 
                                                                 ';
 

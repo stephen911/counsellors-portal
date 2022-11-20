@@ -45,19 +45,19 @@ $user = members();
         <div class="leftside-menu">
 
             <!-- Logo Light -->
-            <a href="index-2.php" class="logo logo-light">
+            <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-lg">
                     <img src="assets/images/logo.png" alt="logo" height="22">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo" height="22">
+                    <img src="assets/images/logo.png" alt="small logo" height="22">
                 </span>
             </a>
 
             <!-- Logo Dark -->
-            <a href="index-2.php" class="logo logo-dark">
+            <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                    <img src="assets/images/logo.png" alt="dark logo" height="22">
                 </span>
                 <span class="logo-sm">
                     <img src="assets/images/logo-dark-sm.png" alt="small logo" height="22">
@@ -73,7 +73,7 @@ $user = members();
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
                 <div class="leftbar-user">
-                    <a href="pages-profile.php">
+                    <a href="#">
                         <img src="uploads/<?php echo $user['passport'] ; ?>" alt="user-image" height="42" class="rounded-circle shadow-sm">
                         <span class="leftbar-user-name"><strong><?php echo $user['name']; ?></strong></span>
                     </a>
@@ -155,8 +155,17 @@ $user = members();
                                             <div class="col-sm-4 offset-sm-2">
                                                 <div class="mt-3 float-sm-end">
                                                     <!-- <p class="font-13"><strong>Transaction Date: </strong> <span class="float-end">&nbsp;&nbsp;&nbsp; </?//php  transactionsdate(); ?></span></p> -->
-                                                    <p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p>
-                                                    <p class="font-13"><strong>Transaction ID: </strong> <span class="float-end"><?php  receiptId(); ?></span></p>
+
+                                                    <?php if($user['paystatus'] == "paid") {
+                                                    echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-success float-end">Paid</span></p>';
+
+                                                    }else{
+                                                        echo '<p class="font-13"><strong>Transaction Status: </strong> <span class="badge bg-danger float-end">N/A</span></p>';
+
+                                                    }
+                                                    
+                                                    ?>
+                                                    <p class="font-13"><strong>Transaction No: </strong> <span class="float-end"><?php  receiptId(); ?></span></p>
                                                 </div>
                                             </div><!-- end col -->
                                         </div>
@@ -199,6 +208,7 @@ $user = members();
                                                         <tr><th>#</th>
                                                             <th>Membership Type</th>
                                                             <th>Transaction Date</th>
+                                                            <th>Transaction ID</th>
                                                             <th>Amount</th>
                                                             <th class="text-end">Total</th>
                                                         </tr></thead>

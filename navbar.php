@@ -57,11 +57,11 @@
 
                         
 
-                        <li class="notification-list d-none d-sm-inline-block">
+                        <!-- <li class="notification-list d-none d-sm-inline-block">
                             <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
                                 <i class="ri-settings-3-line noti-icon"></i>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="notification-list d-none d-sm-inline-block">
                             <a class="nav-link" href="javascript:void(0)" id="light-dark-mode">
