@@ -6,13 +6,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register | GNACC - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>Register | GNACC </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="assets/images/favicon2.ico">
 
     <!-- Theme Config Js -->
     <script src="assets/js/hyper-config.js"></script>
@@ -83,6 +83,25 @@
                                         <option selected></option>
                                         <option>Male</option>
                                         <option>Female</option>
+                                        <option>Preffered not to say</option>
+
+
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Marital Status</label>
+                                    <select class="form-select" required="required" id="example-select" name="mstatus">
+                                        <option selected></option>
+                                        <option>Single</option>
+                                        <option>Married</option>
+                                        <option>Divorced</option>
+                                        <option>Widow</option>
+                                        <option>Widower</option>
+                                        <option>Rev. Sis</option>
+                                        <option>Rev. Brother</option>
+                                        <option>Rev. Father</option>
+
 
                                     </select>
                                 </div>
@@ -116,19 +135,61 @@
                                     <label for="emailaddress" class="form-label">Occupation</label>
                                     <input class="form-control" required="required" type="text" id="occupation" required placeholder="Enter your Occupation" name="occupation">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">GNACC No.</label>
+                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="GNACC No." name="gnaccno">
+
+                                </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Marital Status</label>
-                                    <select class="form-select" required="required" id="example-select" name="mstatus">
-                                        <option selected></option>
-                                        <option>Single</option>
-                                        <option>Married</option>
+                                    <label for="emailaddress" class="form-label">GPC No.</label>
+                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="GPC No." name="gpcno">
+                                    
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Workplace</label>
+                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="Workplace" name="workplace">
+                                    
+                                </div>
+                                
+                               
+
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Region of Residence</label>
+                                    <select class="form-select" required="required" id="example-select" name="region">
+                                        <option selected value="">
+                                        </option>
+
+                                        <option value="Greater Accra">Greater Accra</option>
+                                        <option value="Ashanti Region">Ashanti Region</option>
+                                        <option value="Ahafo Region">Ahafo Region</option>
+                                        <option value="Bono Region">Bono Region</option>
+                                        <option value="Bono East Region">Bono East Region</option>
+                                        <option value="Central Region">Central Region</option>
+                                        <option value="Eastern Region">Eastern Region</option>
+                                        <option value="Northern Region">Northern Region</option>
+                                        <option value="North East Region">North East Region</option>
+                                        <option value="Oti Region">Oti Region</option>
+                                        <option value="Savannah Region">Savannah Region</option>
+                                        <option value="Upper East Region">Upper East Region</option>
+                                        <option value="Upper West Region">Upper West Region</option>
+                                        <option value="Volta Region">Volta Region</option>
+                                        <option value="Western Region">Western Region</option>
+                                        <option value="Western North Region">Western North Region</option>
 
                                     </select>
                                 </div>
 
+
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Region</label>
+                                    <label for="emailaddress" class="form-label">Hometown</label>
+                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="Your Hometown" name="hometown">
+                                    
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Region of Hometown</label>
                                     <select class="form-select" required="required" id="example-select" name="region">
                                         <option selected value="">
                                         </option>
@@ -231,19 +292,19 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">T-Shirt Colour Preference</label>
+                                    <label for="example-select" class="form-label">Religious Affliation</label>
                                     <select class="form-select" required="required" id="example-select" name="color">
                                         <option selected></option>
-                                        <option>Any</option>
-                                        <option>White</option>
-                                        <option>Blue</option>
-                                        <option>Black</option>
-                                        <option>Orange</option>
+                                        <option>Christianity</option>
+                                        <option>Islam</option>
+                                        <option>Traditionalist</option>
+                                        <option>Others</option>
+                                        <!-- <option>Orange</option> -->
 
 
                                     </select>
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="example-select" class="form-label">T-Shirt Size Preference</label>
                                     <select class="form-select" required="required" id="example-select" name="size">
                                         <option selected></option>
@@ -255,7 +316,7 @@
 
 
                                     </select>
-                                </div>
+                                </div> -->
 
                                 <!-- <div class="mb-3">
                                     <label for="example-select" class="form-label">Are you a Student?</label>

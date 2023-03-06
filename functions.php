@@ -187,7 +187,7 @@ function updateuser($id, $email, $tdate, $contact, $gender, $wnumber, $enumber, 
     // }
 }
 
-function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year, $heard, $password)
+function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $residence,  $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year, $heard, $password)
 {
     $password = md5($password);
     include 'starter.php';

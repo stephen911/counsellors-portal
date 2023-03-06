@@ -31,8 +31,8 @@ class Yolkpay
   public function payscript($fname, $lname, $email, $phone, $amount, $ref = '')
   {
     if ($ref == '') {
-      $r1 = 'YP';
-      $r2 = uniqid('AdfSXD');
+      $r1 = 'GNA';
+      $r2 = uniqid('CC');
       $r3 = time();
       $ref = $r1 . '' . $r2 . '' . $r3;
     }

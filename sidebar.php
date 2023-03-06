@@ -299,38 +299,51 @@
     <li class="side-nav-item">
         <a href="dashboard.php" class="side-nav-link">
             <i class="uil-home-alt"></i>
-            <span class="badge bg-secondary text-light float-end">New</span>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Dashboard </span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="edit.php" class="side-nav-link">
             <i class="uil-clipboard-alt"></i>
-            <span class="badge bg-secondary text-light float-end">New</span>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Edit Info</span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="payment.php" class="side-nav-link">
             <i class="uil-chart"></i>
-            <span class="badge bg-secondary text-light float-end">New</span>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Payment </span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="cert.php" class="side-nav-link">
             <i class="uil-package"></i>
-            <span class="badge bg-secondary text-light float-end">New</span>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Certificate </span>
         </a>
     </li>
     <li class="side-nav-item">
         <a href="receipt.php" class="side-nav-link">
             <i class="uil-calender"></i>
-            <span class="badge bg-secondary text-light float-end">New</span>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
             <span> Receipt </span>
         </a>
     </li>
+
+    <li class="side-nav-title side-nav-item">Account</li>
+
+    <li class="side-nav-item">
+        <a href="logout.php" class="side-nav-link">
+        <i class="mdi mdi-logout me-1"></i>
+            <!-- <span class="badge bg-secondary text-light float-end">New</span> -->
+            <span> Logout </span>
+        </a>
+    </li>
+
+
+    
 
     <!-- <li class="side-nav-item">
         <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
