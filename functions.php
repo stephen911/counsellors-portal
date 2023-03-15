@@ -256,7 +256,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,color,size,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$color','$size','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$residence','$gnaccid' ) ");
 
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
@@ -313,9 +313,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
                 $dd = date('jS F, Y');
                 $end = "N/A";//date('jS F, Y', strtotime('+1 years'));
-        
-        
-        
+
                 $old = $tdate;
         
                 $tdate = date('jS F, Y', strtotime($old));
@@ -367,7 +365,6 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                 } else {
                 }
             } else {
-
                 echo "<h3>  Failed to upload image id!</h3>";
             }
         }
@@ -511,11 +508,6 @@ function payment($uid, $ref, $amount)
     $dateadded = date('jS F,Y');
     $end = date('jS F, Y', strtotime('+1 years'));
 
-
-
-
-
-
     $ins = mysqli_query($conn, "INSERT INTO transactions (uid,transid,amount,dateadded) VALUES('$uid','$ref','$amount','$dateadded')");
     $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid', existing = 'yes', expiry = '$end' WHERE id ='$uid'");
 
@@ -525,7 +517,7 @@ function payment($uid, $ref, $amount)
     }
 
     if ($ins || $up) {
-        //mail('stephendappah1@gmail.com', 'TUCEE NTC REGISTRATION', "", $headers);
+        // mail('stephendappah1@gmail.com', 'TUCEE NTC REGISTRATION', "", $headers);
         echo 'donepay';
     } else {
         $fail = mysqli_query($conn, "SELECT name members WHERE id ='$uid'");
