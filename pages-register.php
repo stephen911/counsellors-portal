@@ -299,35 +299,9 @@
                                         <option>Islam</option>
                                         <option>Traditionalist</option>
                                         <option>Others</option>
-                                        <!-- <option>Orange</option> -->
-
-
                                     </select>
                                 </div>
-                                <!-- <div class="mb-3">
-                                    <label for="example-select" class="form-label">T-Shirt Size Preference</label>
-                                    <select class="form-select" required="required" id="example-select" name="size">
-                                        <option selected></option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                        <option>XXL</option>
-                                        <option>XXXL</option>
-
-
-                                    </select>
-                                </div> -->
-
-                                <!-- <div class="mb-3">
-                                    <label for="example-select" class="form-label">Are you a Student?</label>
-                                    <select class="form-select" id="example-select" name="student">
-                                        <option selected></option>
-                                        <option>Yes</option>
-                                        <option>No</option>
-
-
-                                    </select>
-                                </div> -->
+                          
 
                                 <div id="student" style="display: none;">
                                     <div class="mb-3">
