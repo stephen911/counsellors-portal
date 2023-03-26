@@ -43,6 +43,7 @@ require 'functions.php';
 
         case 'register':
             extract($_POST);
+            $data = $_POST;
             if ($oname == '') {
                 $name = $title.' '.$fname.' '.$lname;
             } else {
@@ -53,7 +54,8 @@ require 'functions.php';
                 } elseif ($fname == '' || $lname == '' ) {
                     echo ' All field must be filled';
                 } else {
-                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $gnaccno, );
+                //    register($data);
+                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password);
                 }
 
             break;

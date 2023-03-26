@@ -218,9 +218,26 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Nationality</label>
                                     <select class="form-select" required="required" id="example-select" name="nationality">
+                                        <option >Select</option>
+                                        <option value="Ghanaian">Ghanaian</option>
+                                        <option value="Foreigner">Foreigner</option>
+
+                                    </select>
+                                </div>
+
+
+                                
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
+                                    <select class="form-select" required="required" id="student-select" name="membership">
                                         <option selected></option>
-                                        <option>Ghanaian</option>
-                                        <option>Foreigner</option>
+                                        <option value="Certificated">Certificated Counsellor</option>
+                                        <option value="Associate">Associate Counsellor</option>
+
+
+                                        <option value="Student">Student - Counsellor</option>
+
+
 
                                     </select>
                                 </div>
@@ -245,20 +262,6 @@
                                 </div>
 
 
-                                <div class="mb-3">
-                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                    <select class="form-select" required="required" id="student-select" name="membership">
-                                        <option selected></option>
-                                        <option value="Certificated">Certificated Counsellor</option>
-                                        <option value="Associate">Associate Counsellor</option>
-
-
-                                        <option value="Student">Student - Counsellor</option>
-
-
-
-                                    </select>
-                                </div>
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
