@@ -53,7 +53,7 @@ require 'functions.php';
                 } elseif ($fname == '' || $lname == '' ) {
                     echo ' All field must be filled';
                 } else {
-                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year, $heard, $password, $gpcno, $workplace, $hometown, $religion, $residence, $gnaccno, );
+                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $gnaccno, );
                 }
 
             break;
@@ -73,3 +73,7 @@ require 'functions.php';
         break;
     }
  }
+
+
+
+ ?>

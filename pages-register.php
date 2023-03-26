@@ -157,7 +157,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Region of Residence</label>
-                                    <select class="form-select" required="required" id="example-select" name="region">
+                                    <select class="form-select" required="required" id="example-select" name="regionofresidence">
                                         <option selected value="">
                                         </option>
 
@@ -293,7 +293,7 @@
 
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Religious Affliation</label>
-                                    <select class="form-select" required="required" id="example-select" name="color">
+                                    <select class="form-select" required="required" id="example-select" name="religion">
                                         <option selected></option>
                                         <option>Christianity</option>
                                         <option>Islam</option>
