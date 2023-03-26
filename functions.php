@@ -226,7 +226,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-        if (isset($_FILES['idcard']['name'])) {
+        if (!empty($_FILES['idcard']['name'])) {
 
             // $filenameid = $_FILES['idcard']["name"];
 
@@ -284,29 +284,37 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
                     $row = mysqli_fetch_array($sel);
 
-                    $year = strval(date('y'));
-                    $gnaccid = $year . "-0" . $row['id'] ;
-                    if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
-                        $gnaccid = $year . '-0' . $row['id'];
-                    } else if (intval($row['id']) < 100) {
-                        $gnaccid = $year . '-00' . $row['id'];
-                    } else {
-                        $gnaccid = $year . '-' . $row['id'];
+
+
+                    if($gnaccno == ""){
+
+                        $year = strval(date('y'));
+                        $gnaccid = $year . "-0" . $row['id'] ;
+                        if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
+                            $gnaccid = $year . '-0' . $row['id'];
+                        } else if (intval($row['id']) < 100) {
+                            $gnaccid = $year . '-00' . $row['id'];
+                        } else {
+                            $gnaccid = $year . '-' . $row['id'];
+                        }
+                        // $gnaccid = $year . '-00' . $row['id'];
+    
+                        $idw =  $row['id'];
+    
+    
+                        // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
+                        $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
+    
+    
+                        //Execute query
+    
+                        mysqli_query($conn, $sqlid);
+                        session_start();
+                        $_SESSION['id'] = $row['id'];
+
                     }
-                    // $gnaccid = $year . '-00' . $row['id'];
 
-                    $idw =  $row['id'];
-
-
-                    // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
-                    $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
-
-
-                    //Execute query
-
-                    mysqli_query($conn, $sqlid);
-                    session_start();
-                    $_SESSION['id'] = $row['id'];
+                   
 
                     echo 'registered';
                 } else {
@@ -368,43 +376,38 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                 
         
         
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded,zone,natid,hometown,workplace,gpcno,religion,regionResidence) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd','$zone','$filenamegh','$hometown','$workplace','$gpcno','$religion','$regionofresidence' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded,zone,natid,hometown,workplace,gpcno,religion,regionResidence,gnaccid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd','$zone','$filenamegh','$hometown','$workplace','$gpcno','$religion','$regionofresidence','$gnaccno' ) ");
         
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
                     $row = mysqli_fetch_array($sel);
-                    $year = strval(date('y'));
-                    // $gnaccid = $year . "-0" . $row['id'] ;
-                    if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
-                        $gnaccid = $year . '-0' . $row['id'];
-                    } else if (intval($row['id']) < 100) {
-                        $gnaccid = $year . '-00' . $row['id'];
-                    } else {
-                        $gnaccid = $year . '-' . $row['id'];
+                    if($gnaccno == ""){
+
+                        $year = strval(date('y'));
+                        $gnaccid = $year . "-0" . $row['id'] ;
+                        if (intval($row['id']) > 99 && intval($row['id']) < 1000) {
+                            $gnaccid = $year . '-0' . $row['id'];
+                        } else if (intval($row['id']) < 100) {
+                            $gnaccid = $year . '-00' . $row['id'];
+                        } else {
+                            $gnaccid = $year . '-' . $row['id'];
+                        }
+                        // $gnaccid = $year . '-00' . $row['id'];
+    
+                        $idw =  $row['id'];
+    
+    
+                        // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
+                        $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
+    
+    
+                        //Execute query
+    
+                        mysqli_query($conn, $sqlid);
+                        session_start();
+                        $_SESSION['id'] = $row['id'];
+
                     }
-                    // $gnaccid = $year . '-00' . $row['id'];
-
-                    $idw =  $row['id'];
-        
-        
-                    // $sql = "INSERT INTO transactions (uid) VALUES ('$gnaccid')";
-                    $sqlid = "UPDATE members SET gnaccid = '$gnaccid'WHERE id = '$idw'";
-
-                    // $sql = "INSERT INTO members (passport) VALUES ('$filename')";
-            // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
-
-
-            // // Execute query
-
-            // mysqli_query($conn, $sql);
-        
-        
-                    //Execute query
-        
-                    mysqli_query($conn, $sqlid);
-                    session_start();
-                    $_SESSION['id'] = $row['id'];
-        
                     echo 'registered';
                 } else {
                 }

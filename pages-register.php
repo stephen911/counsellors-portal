@@ -137,13 +137,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">GNACC No.</label>
-                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="GNACC No." name="gnaccno">
+                                    <input class="form-control" type="text" id="occupation" required placeholder="GNACC No." name="gnaccno">
 
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">GPC No.</label>
-                                    <input class="form-control" required="required" type="text" id="occupation" required placeholder="GPC No." name="gpcno">
+                                    <input class="form-control"  type="text" id="occupation" required placeholder="GPC No." name="gpcno">
                                     
                                 </div>
 
