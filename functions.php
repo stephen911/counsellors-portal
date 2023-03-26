@@ -226,7 +226,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
-        if (!isset($_FILES['idcard']['name']) && !isset($_FILES['ghanacard']['name']) && !isset($_FILES['passport']['name'])) {
+        if (isset($_FILES['idcard']['name'])) {
 
             // $filenameid = $_FILES['idcard']["name"];
 
@@ -239,23 +239,6 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
             $folder2 = "uploadgh/" . $filenamegh;
 
 
-           
-
-
-
-
-
-
-
-            // $sql = "INSERT INTO members (passport,iDCard) VALUES ('$filename', '$filenameid')";
-            // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
-
-
-            // // Execute query
-
-            // mysqli_query($conn, $sql);
-
-            // Now let's move the uploaded image into the folder: image
 
             if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnameid, $folder1) &&  move_uploaded_file($tempnamegh, $folder2)) {
 
@@ -295,7 +278,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
              
 
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid,zone,natid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccid','$zone','$filenamegh' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid,zone,natid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccno','$zone','$filenamegh' ) ");
 
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
