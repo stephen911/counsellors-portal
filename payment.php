@@ -148,7 +148,7 @@ $user = members();
                                             </p>
                                                 <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
+                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 1, $ref = '') . '
                                                     ' . $yolk->pay("Renew") . '
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@ $user = members();
                                             Renew your membership here as a(an) ' . $user['membership'] . ' Counsellor
                                             <div class="col-sm-12">
                                                     ' . $yolk->handler() . '
-                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 150, $ref = '') . '
+                                                    ' . $yolk->payscript($user['title'], $user['name'], $user['email'], $user['contact'], 0.10, $ref = '') . '
                                                     ' . $yolk->pay("Pay Now") . '
                                                 </div>
                                             </div>

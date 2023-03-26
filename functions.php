@@ -210,18 +210,30 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
         $tempname = $_FILES['passport']["tmp_name"];
 
+        
+        $filenamegh = $_FILES['ghanacard']["name"];
+
+        $tempnamegh = $_FILES['ghanacard']["tmp_name"];
 
 
 
 
-        if (!isset($_FILES['idcard']['name'])) {
+
+
+
+        if (!isset($_FILES['idcard']['name']) && !isset($_FILES['ghanacard']['name'])) {
 
             $filenameid = $_FILES['idcard']["name"];
 
             $tempnameid = $_FILES['idcard']["tmp_name"];
 
+
+
             $folder = "uploads/" . $filename;
             $folder1 = "uploads/" . $filenameid;
+
+
+           
 
 
 
@@ -239,7 +251,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
             // Now let's move the uploaded image into the folder: image
 
-            if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnameid, $folder1)) {
+            if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnameid, $folder1) &&  move_uploaded_file($tempnamegh, $folder2)) {
 
                 $dd = date('jS F, Y');
                 $end = "N/A";//date('jS F, Y', strtotime('+1 years'));
@@ -253,10 +265,31 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
 
 
+                if($regionofresidence == "Greater Accra" || $regionofresidence == "Eastern Region" || $regionofresidence == "Volta Region" || $regionofresidence == "Oti Region" ){
+                    $zone = "VEGA";
+
+                }else if ($regionofresidence == "North East Region" ||$regionofresidence == "Northern Region" || $regionofresidence == "Upper East Region" || $regionofresidence == "Upper West Region"|| $regionofresidence == "Savvannah Region" ){
+                    $zone = "NUEW";
+
+
+                }else if($regionofresidence == "Bono East Region" || $regionofresidence == "Bono Region"  || $regionofresidence == "Ahafo Region"  || $regionofresidence == "Ashanti Region"){
+                    $zone = "BAASH";
+
+
+                }else if($regionofresidence == "Western Region" || $regionofresidence == "Western North Region" || $regionofresidence == "Central Region"){
+                    $zone = "WESTRAL";
+
+                }
+
+                    
+                    
+
+
+
 
              
 
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccid' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid,zone,natid,hometown,workplace,gpcno,religion,regionResidence) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccid','$zone','$filenamegh' ) ");
 
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
@@ -299,6 +332,10 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
             $folder = "uploads/" . $filename;
 
+            
+       
+        $folder2 = "uploads/" . $filenamegh;
+
             // $sql = "INSERT INTO members (passport) VALUES ('$filename')";
             // // $sqlid = "INSERT INTO image (idCard) VALUES ('$filenameid')";
 
@@ -309,7 +346,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
             // Now let's move the uploaded image into the folder: image
 
-            if (move_uploaded_file($tempname, $folder)) {
+            if (move_uploaded_file($tempname, $folder) && move_uploaded_file($tempnamegh, $folder2)) {
 
                 $dd = date('jS F, Y');
                 $end = "N/A";//date('jS F, Y', strtotime('+1 years'));
@@ -318,13 +355,31 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
         
                 $tdate = date('jS F, Y', strtotime($old));
                 $existing = "no";
+
+
+                
+                if($regionofresidence == "Greater Accra" || $regionofresidence == "Eastern Region" || $regionofresidence == "Volta Region" || $regionofresidence == "Oti Region" ){
+                    $zone = "VEGA";
+
+                }else if ($regionofresidence == "North East Region" ||$regionofresidence == "Northern Region" || $regionofresidence == "Upper East Region" || $regionofresidence == "Upper West Region"|| $regionofresidence == "Savvannah Region" ){
+                    $zone = "NUEW";
+
+
+                }else if($regionofresidence == "Bono East Region" || $regionofresidence == "Bono Region"  || $regionofresidence == "Ahafo Region"  || $regionofresidence == "Ashanti Region"){
+                    $zone = "BAASH";
+
+
+                }else if($regionofresidence == "Western Region" || $regionofresidence == "Western North Region" || $regionofresidence == "Central Region"){
+                    $zone = "WESTRAL";
+
+                }
         
         
         
                 
         
         
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded,zone,natid,hometown,workplace,gpcno,religion,regionResidence) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd','$zone','$filenamegh','$hometown','$workplace','$gpcno','$religion','$regionofresidence' ) ");
         
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
@@ -505,8 +560,26 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 function payment($uid, $ref, $amount)
 {
     include 'starter.php';
+
+    $exdate = mysqli_query($conn, "SELECT * FROM members WHERE id ='$uid'");
+    while($row = mysqli_fetch_array($exdate)){
+        $d = $row['expiry'];
+        
+        
+    }  
+
+    if($d == "N/A"){
+         $end = date('Y-10-31', strtotime('+1 years'));   
+    }else{
+
+        // $date = "2022-02-01";
+        $end = date('Y-m-d', strtotime($d. ' + 1 years'));
+        // $end = date(strval($d), strtotime('+1 years'));
+    }
+
+
     $dateadded = date('jS F,Y');
-    $end = date('jS F, Y', strtotime('+1 years'));
+   
 
     $ins = mysqli_query($conn, "INSERT INTO transactions (uid,transid,amount,dateadded) VALUES('$uid','$ref','$amount','$dateadded')");
     $up = mysqli_query($conn, "UPDATE members SET paystatus ='paid', existing = 'yes', expiry = '$end' WHERE id ='$uid'");
@@ -520,7 +593,7 @@ function payment($uid, $ref, $amount)
         // mail('stephendappah1@gmail.com', 'TUCEE NTC REGISTRATION', "", $headers);
         echo 'donepay';
     } else {
-        $fail = mysqli_query($conn, "SELECT name members WHERE id ='$uid'");
+        $fail = mysqli_query($conn, "SELECT name FROM members WHERE id ='$uid'");
 
         if ($fail) {
             $mess = "Fail to update payment for " . $fail . " ID: " . "$uid";

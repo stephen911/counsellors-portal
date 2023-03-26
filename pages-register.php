@@ -248,6 +248,11 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="example-fileinput" class="form-label">National ID / Ghana Card</label>
+                                    <input type="file" required="required" id="example-fileinput" class="form-control" name="ghanacard">
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="example-select" class="form-label">Educational Level</label>
                                     <select class="form-select"  required="required" id="example-select" name="edulevel">
                                         <option selected></option>
