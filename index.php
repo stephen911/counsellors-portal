@@ -36,21 +36,22 @@
 
                         <!-- Logo -->
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
-                            <a href="index-2.php">
-                                <span><img src="assets/images/logo.png" alt="logo" height="40"></span>
+                            <a href="#">
+                                <span><img src="assets/images/logo.png" alt="logo" height="100"></span>
                             </a>
                         </div>
 
                         <div class="card-body p-4">
+                        <p class="text-muted">We maintain physical, electronic, and procedural safegaurds to protect the confidentiality and security of your personal user data and other information.</p>
 
                         <div class="mb-3 mb-0 text-center">
                                     <a href="pages-register.php" class="btn btn-primary" type="submit"> Register </a>
                                 </div>
 
-                            <div class="text-center w-75 m-auto">
+                            <!-- <div class="text-center w-75 m-auto">
                                 <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
-                                <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
-                            </div>
+                                <p class="text-muted mb-4">Enter your email address and password to Login.</p>
+                            </div> -->
 
                             <form action="" novalidate method="post" class="login">
 
@@ -88,7 +89,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p>
+                            <!-- <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p> -->
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->

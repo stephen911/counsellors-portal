@@ -111,7 +111,7 @@ function enrolluser($id, $enroll)
     }
 }
 
-function updateuser($id, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $nationality, $edulevel, $area, $membership, $challenge, $color, $size, $school, $programme, $year)
+function updateuser($id, $contact, $wnumber, $enumber, $address, $occupation, $mstatus, $edulevel, $area, $challenge,)
 {
     // include 'mail.php';
 
@@ -127,14 +127,17 @@ function updateuser($id, $email, $tdate, $contact, $gender, $wnumber, $enumber, 
     include 'sms.php';
     // $sms = new sms();
     // $send = new Yolksms();
-    $olddate = $tdate;
-    $tdate = date('jS F, Y', strtotime($olddate));
+    // $olddate = $tdate;
+    // $tdate = date('jS F, Y', strtotime($olddate));
 
     include 'starter.php';
     // $gg = mysqli_query($conn, "SELECT * FROM members WHERE id = '$id'");
     // $rg = mysqli_fetch_array($gg);
     // $admin = 'New user has registered for ntc programme. name - '.$name.' , contact - '.$contact.'';
-    if (mysqli_query($conn, "UPDATE members SET gender = '$gender', email='$email', contact= '$contact', whatsapp='$wnumber', tdate = '$tdate', emergency = '$enumber', gpsAddress = '$address', occupation='$occupation',maritalStatus = '$mstatus', region = '$region', nationality = '$nationality', eduLevel = '$edulevel', counsellingArea = '$area', membership = '$membership', phyChallenge='$challenge', color='$color',size='$size',school='$school',programme='$programme',year='$year', tdate='$tdate'  WHERE id='$id'  ")) {
+    // if (mysqli_query($conn, "UPDATE members SET gender = '$gender', email='$email', contact= '$contact', whatsapp='$wnumber', tdate = '$tdate', emergency = '$enumber', gpsAddress = '$address', occupation='$occupation',maritalStatus = '$mstatus', region = '$region', nationality = '$nationality', eduLevel = '$edulevel', counsellingArea = '$area', membership = '$membership', phyChallenge='$challenge', color='$color',size='$size',school='$school',programme='$programme',year='$year', tdate='$tdate'  WHERE id='$id'  ")) {
+
+        if (mysqli_query($conn, "UPDATE members SET contact= '$contact', whatsapp='$wnumber', emergency = '$enumber', gpsAddress = '$address', occupation='$occupation',maritalStatus = '$mstatus',  eduLevel = '$edulevel', counsellingArea = '$area', phyChallenge='$challenge'  WHERE id='$id'  ")) {
+
         echo 'updatesuccess';
         // mail('stephendappah1@gmail.com', 'TUCEE '.$subject, $admin.' Duplicate', $headers);
         // mail('kpin463@gmail.com', 'TUCEE '.$subject, $admin.'Duplicate', $headers);

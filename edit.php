@@ -192,14 +192,14 @@ $user = members();
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
 
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
+                                                    <input type="email" class="form-control" id="exampleInputEmail1" disabled = "disabled"  aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo ($user['email'] == '') ? '' : $user['email']; ?>">
                                                     <input id="email" type="hidden" placeholder="Name to be shown on Certificate" value="<?php echo  $user['id']; ?>" class="form-control" name="id">
 
-                                                    <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small>
+                                                    <!-- <small id="emailHelp" class="form-text text-muted">Please make sur you remember the password to the email you are providing</small> -->
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Gender</label>
-                                                    <select class="form-select" id="example-select" name="gender">
+                                                    <select class="form-select"  id="example-select" name="gender" disabled = "disabled" >
                                                     <option selected value="<?php echo ($user['gender'] == '') ? '' : $user['gender']; ?>"><?php echo ($user['gender'] == '') ? 'Select Gender' : $user['gender']; ?></option>
 
                                                         <option>Male</option>
@@ -211,7 +211,7 @@ $user = members();
                                                     <label for="example-date" class="form-label">Date</label>
                                                     <?php $date = date('Y-m-d', strtotime($user['tdate'])); ?>
                                                         <!-- <input required="required" id="tdate" type="date" placeholder="Date for training" value="<?php echo ($user['tdate'] == '') ? '' : $date; ?>" class="form-control" name="tdate"> -->
-                                                    <input class="form-control" id="example-date" type="date" name="tdate" value="<?php echo ($user['tdate'] == '') ? '' : $date; ?>">
+                                                    <input class="form-control" id="example-date" type="date" disabled = "disabled"  name="tdate" value="<?php echo ($user['tdate'] == '') ? '' : $date; ?>">
                                                 </div>
 
 
@@ -252,7 +252,7 @@ $user = members();
 
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Region</label>
-                                                    <select class="form-select" id="example-select" name="region">
+                                                    <select class="form-select" id="example-select" name="region"disabled = "disabled" >
                                                     <option selected value="<?php echo ($user['region'] == '') ? '' : $user['region']; ?>"><?php echo ($user['region'] == '') ? 'Select Region' : $user['region']; ?></option>
 
                                                         </option>
@@ -280,7 +280,7 @@ $user = members();
 
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Nationality</label>
-                                                    <select class="form-select" id="example-select" name="nationality">
+                                                    <select class="form-select" id="example-select" name="nationality" disabled = "disabled" >
                                                         <!-- <option selected></option> -->
                                                         <option selected value="<?php echo ($user['nationality'] == '') ? '' : $user['nationality']; ?>"><?php echo ($user['nationality'] == '') ? 'Select Nationality' : $user['nationality']; ?></option>
 
@@ -313,7 +313,7 @@ $user = members();
 
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Counsellor Membership Type</label>
-                                                    <select class="form-select" id="student-select" name="membership">
+                                                    <select class="form-select" id="student-select" name="membership" disabled = "disabled" >
                                                     <option selected value="<?php echo ($user['membership'] == '') ? '' : $user['membership']; ?>"><?php echo ($user['membership'] == '') ? 'Select Membership' : $user['membership']; ?></option>
 
                                                         <option value="Certificated">Certificated Counsellor</option>
@@ -329,7 +329,7 @@ $user = members();
 
                                                 <div class="mb-3">
                                                     <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
-                                                    <select class="form-select" id="example-select" name="area">
+                                                    <select class="form-select" id="example-select" name="area" >
                                                     <option selected value="<?php echo ($user['counsellingArea'] == '') ? '' : $user['counsellingArea']; ?>"><?php echo ($user['counsellingArea'] == '') ? 'Select Counselling Area' : $user['counsellingArea']; ?></option>
 
                                                         <option>Marriage and Family</option>
@@ -360,7 +360,7 @@ $user = members();
                                                     </select>
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <!-- <div class="mb-3">
                                                     <label for="example-select" class="form-label">T-Shirt Colour Preference</label>
                                                     <select class="form-select" id="example-select" name="color">
                                                     <option selected value="<?php echo ($user['color'] == '') ? '' : $user['color']; ?>"><?php echo ($user['color'] == '') ? 'T-Shirt Colour Preference' : $user['color']; ?></option>
@@ -387,7 +387,7 @@ $user = members();
 
 
                                                     </select>
-                                                </div>
+                                                </div> -->
 
                                                 <!-- <div class="mb-3">
                                     <label for="example-select" class="form-label">Are you a Student?</label>
@@ -403,18 +403,18 @@ $user = members();
                                                 <div id="student" style="display: none;">
                                                     <div class="mb-3">
                                                         <label for="emailaddress" class="form-label">Name of Institution / School</label>
-                                                        <input class="form-control" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school" value="<?php echo ($user['school'] == '') ? '' : $user['school']; ?>">
+                                                        <input class="form-control" type="text" id="school" disabled = "disabled"  required placeholder="Enter the Name of your Institution" name="school" value="<?php echo ($user['school'] == '') ? '' : $user['school']; ?>">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="emailaddress" class="form-label">Programme Of Study</label>
-                                                        <input class="form-control" type="text" id="programme" required placeholder="Enter your programme of study" name="programme" value="<?php echo ($user['programme'] == '') ? '' : $user['programme']; ?>">
+                                                        <input class="form-control" type="text" id="programme" disabled = "disabled"  required placeholder="Enter your programme of study" name="programme" value="<?php echo ($user['programme'] == '') ? '' : $user['programme']; ?>">
                                                     </div>
                                                     <div class="tab-content">
                                                         <div class="tab-pane show active" id="datepicker-preview">
                                                             <div class="col-lg-6">
                                                                 <div class="mb-3 position-relative" id="datepicker6">
                                                                     <label class="form-label">Year Of Entry</label>
-                                                                    <input type="text" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year" value="<?php echo ($user['year'] == '') ? '' : $user['year']; ?>">
+                                                                    <input type="text" class="form-control" disabled = "disabled"  data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year" value="<?php echo ($user['year'] == '') ? '' : $user['year']; ?>">
                                                                 </div>
                                                             </div>
                                                         </div>

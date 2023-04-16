@@ -66,11 +66,11 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">First Name</label>
+                                    <label for="fullname" class="form-label">First Name<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="fullname" placeholder="Enter your First Name" required name="fname">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Last Name</label>
+                                    <label for="fullname" class="form-label">Last Name<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="fullname" placeholder="Enter your Last Name" required name="lname">
                                 </div>
                                 <div class="mb-3">
@@ -78,7 +78,7 @@
                                     <input class="form-control" required="required" type="text" id="fullname" placeholder="Other Name" required name="oname">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Gender</label>
+                                    <label for="example-select" class="form-label">Gender<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="gender">
                                         <option selected></option>
                                         <option>Male</option>
@@ -90,7 +90,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Marital Status</label>
+                                    <label for="example-select" class="form-label">Marital Status<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="mstatus">
                                         <option selected></option>
                                         <option>Single</option>
@@ -106,18 +106,19 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="example-date" class="form-label">Date</label>
+                                    <label for="example-date" class="form-label">Date of Birth<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" id="example-date" type="date" name="tdate">
+                                    <small><span style="color:green;">Minimum age required to join GNACC is 20 years</span></small>
                                 </div>
 
 
 
                                 <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Contact Number</label>
+                                    <label for="emailaddress" class="form-label">Contact Number<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="contact" required placeholder="Enter your phone Number" name="contact">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">WhatsApp Number</label>
+                                    <label for="emailaddress" class="form-label">WhatsApp Number<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="whatsapp" required placeholder="Enter your WhatsApp Number" name="wnumber">
                                 </div>
 
@@ -127,12 +128,12 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="Emergency Contact Number" class="form-label">Residential Digital Address</label>
+                                    <label for="Emergency Contact Number" class="form-label">Residential Digital Address<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="emergency" required placeholder="Enter your GPS Address" name="address">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Occupation</label>
+                                    <label for="emailaddress" class="form-label">Occupation<span style="color:red;">*</span></label>
                                     <input class="form-control" required="required" type="text" id="occupation" required placeholder="Enter your Occupation" name="occupation">
                                 </div>
                                 <div class="mb-3">
@@ -156,7 +157,7 @@
                                
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Region of Residence</label>
+                                    <label for="example-select" class="form-label">Region of Residence<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="regionofresidence">
                                         <option selected value="">
                                         </option>
@@ -189,7 +190,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Region of Hometown</label>
+                                    <label for="example-select" class="form-label">Region of Hometown<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="region">
                                         <option selected value="">
                                         </option>
@@ -216,7 +217,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Nationality</label>
+                                    <label for="example-select" class="form-label">Nationality<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="nationality">
                                         <option >Select</option>
                                         <option value="Ghanaian">Ghanaian</option>
@@ -228,7 +229,7 @@
 
                                 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Counsellor Membership Type</label>
+                                    <label for="example-select" class="form-label">Counsellor Membership Type<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="student-select" name="membership">
                                         <option selected></option>
                                         <option value="Certificated">Certificated Counsellor</option>
@@ -243,17 +244,17 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-fileinput" class="form-label">Passport Size Picture</label>
+                                    <label for="example-fileinput" class="form-label">Passport Size Picture<span style="color:red;">*</span></label>
                                     <input type="file" required="required" id="example-fileinput" class="form-control" name="passport">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-fileinput" class="form-label">National ID / Ghana Card</label>
+                                    <label for="example-fileinput" class="form-label">National ID / Ghana Card<span style="color:red;">*</span></label>
                                     <input type="file" required="required" id="example-fileinput" class="form-control" name="ghanacard">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Educational Level</label>
+                                    <label for="example-select" class="form-label">Educational Level<span style="color:red;">*</span></label>
                                     <select class="form-select"  required="required" id="example-select" name="edulevel">
                                         <option selected></option>
                                         <option>Senior High Certificate</option>
@@ -269,7 +270,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Specialised Area Of Counselling</label>
+                                    <label for="example-select" class="form-label">Specialised Area Of Counselling<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="area">
                                         <option selected></option>
                                         <option>Marriage and Family</option>
@@ -289,7 +290,7 @@
 
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Do you have Physical Challenge(s)?</label>
+                                    <label for="example-select" class="form-label">Do you have any Physical Challenge(s)?<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="challenge">
                                         <option selected></option>
                                         <option>Yes</option>
@@ -300,12 +301,12 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-select" class="form-label">Religious Affliation</label>
+                                    <label for="example-select" class="form-label">Religious Affliation<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="religion">
                                         <option selected></option>
                                         <option>Christianity</option>
                                         <option>Islam</option>
-                                        <option>Traditionalist</option>
+                                        <!-- <option>Traditionalist</option> -->
                                         <option>Others</option>
                                     </select>
                                 </div>
@@ -313,18 +314,18 @@
 
                                 <div id="student" style="display: none;">
                                     <div class="mb-3">
-                                        <label for="emailaddress" class="form-label">Name of Institution / School</label>
+                                        <label for="emailaddress" class="form-label">Name of Institution / School<span style="color:red;">*</span></label>
                                         <input class="form-control" required="required" type="text" id="school" required placeholder="Enter the Name of your Institution" name="school">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="emailaddress" class="form-label">Programme Of Study</label>
+                                        <label for="emailaddress" class="form-label">Programme Of Study<span style="color:red;">*</span></label>
                                         <input class="form-control" required="required" type="text" id="programme" required placeholder="Enter your programme of study" name="programme">
                                     </div>
                                     <div class="tab-content">
                                         <div class="tab-pane show active" id="datepicker-preview">
                                             <div class="col-lg-6">
                                                 <div class="mb-3 position-relative" id="datepicker6">
-                                                    <label class="form-label">Year Of Entry</label>
+                                                    <label class="form-label">Year Of Entry<span style="color:red;">*</span></label>
                                                     <input type="text" required="required" class="form-control" data-provide="datepicker" data-date-min-view-mode="2" data-date-container="#datepicker6" name="year">
                                                 </div>
                                             </div>
@@ -332,7 +333,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="example-fileinput" class="form-label">Upload Student ID Card</label>
+                                        <label for="example-fileinput" class="form-label">Upload Student ID Card<span style="color:red;">*</span></label>
                                         <input type="file" required="required" id="example-fileinput" class="form-control" name="idcard">
                                     </div>
                                 </div>
@@ -362,13 +363,13 @@
 
 
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <label for="exampleInputEmail1" class="form-label">Email address<span style="color:red;">*</span></label>
                                     <input type="email" required="required" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
                                     <small id="emailHelp" class="form-text text-muted">Please make sure you remember the password to the email you are providing</small>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
+                                    <label for="password" class="form-label">Password<span style="color:red;">*</span></label>
                                     <div class="input-group input-group-merge">
                                         <input type="password"  required="required"id="password" class="form-control" placeholder="Enter your password" name="password">
                                         <div class="input-group-text" data-password="false">
@@ -378,7 +379,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Confirm Password</label>
+                                    <label for="password" class="form-label">Confirm Password<span style="color:red;">*</span></label>
                                     <div class="input-group input-group-merge">
                                         <input type="password" required="required" id="password" class="form-control" placeholder="Enter your password" name="repass">
                                         <div class="input-group-text" data-password="false">
