@@ -106,8 +106,9 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
+                                    
                                     <label for="example-date" class="form-label">Date of Birth<span style="color:red;">*</span></label>
-                                    <input class="form-control" required="required" id="example-date" type="date" name="tdate">
+                                    <input class="form-control" required="required" id="example-date"  type="date"  max="<?php echo date("Y")-20; ?>-12-31" name="tdate">
                                     <small><span style="color:green;">Minimum age required to join GNACC is 20 years</span></small>
                                 </div>
 
