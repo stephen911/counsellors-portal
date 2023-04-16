@@ -108,7 +108,7 @@
                                 <div class="mb-3">
                                     
                                     <label for="example-date" class="form-label">Date of Birth<span style="color:red;">*</span></label>
-                                    <input class="form-control" required="required" id="example-date"  type="date"  max="<?php echo date("Y")-20; ?>-12-31" name="tdate">
+                                    <input class="form-control" required="required" id="example-date"  type="date"  max="<?php echo date("Y")-20; ?>-<?php echo date("m"); ?>-<?php echo date("d"); ?>" name="tdate">
                                     <small><span style="color:green;">Minimum age required to join GNACC is 20 years</span></small>
                                 </div>
 
@@ -271,7 +271,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Educational Level<span style="color:red;">*</span></label>
                                     <select class="form-select"  required="required" id="example-select" name="edulevel">
-                                        <option selected></option>
+                                        <option selected value="">--Select Education Level--</option>
                                         <option>Senior High Certificate</option>
                                         <option>Diploma Certificate</option>
                                         <option value="Bachelors Degree">Bachelor's Degree</option>
@@ -287,7 +287,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Specialised Area Of Counselling<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="area">
-                                        <option selected></option>
+                                        <option selected value="">--Select Specialised Counselling Area--</option>
                                         <option>Marriage and Family</option>
                                         <option>Guidance and Career</option>
 
@@ -423,6 +423,29 @@
                         <div class="col-12 text-center">
                             <p class="text-muted">Already have account? <a href="index.php" class="text-muted ms-1"><b>Log In</b></a></p>
                         </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
+
+                    <div class="row mt-1">
+                        <div class="col-12 text-center">
+                        <p class="text-muted mb-0" id="tooltip-container"><strong></strong>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Facebook"><i class="mdi mdi-facebook"></i></a>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Twitter"><i class="mdi mdi-twitter"></i></a>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Skype"><i class="mdi mdi-skype"></i></a>
+                                            </p>
+                            <!-- <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p> -->
+                        </div> <!-- end col -->
+
+
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-12 text-center">
+                            
+                        <a href="tel:+">HQ Front Desk</a> &nbsp; | &nbsp; <a href="tel:+">Zonal Head</a>
+        <!-- <a href="tel:+">Zonal Head</a> -->
+
+                        </div>
                     </div>
                     <!-- end row -->
 
