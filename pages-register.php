@@ -52,7 +52,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Title</label>
                                     <select class="form-select" id="example-select" name="title" required="required">
-                                        <option selected></option>
+                                        <option selected value = "">--Select title--</option>
                                         <option>Rev.</option>
                                         <option>Mr.</option>
                                         <option>Mrs.</option>
@@ -80,7 +80,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Gender<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="gender">
-                                        <option selected></option>
+                                        <option selected value="">--Select Gender--</option>
                                         <option>Male</option>
                                         <option>Female</option>
                                         <option>Preffered not to say</option>
@@ -92,7 +92,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Marital Status<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="mstatus">
-                                        <option selected></option>
+                                        <option selected value="">--Select Marital Status</option>
                                         <option>Single</option>
                                         <option>Married</option>
                                         <option>Divorced</option>
@@ -160,7 +160,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Region of Residence<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="regionofresidence">
-                                        <option selected value="">
+                                        <option selected value="">--Select Region--
                                         </option>
 
                                         <option value="Greater Accra">Greater Accra</option>
@@ -193,7 +193,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Region of Hometown<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="region">
-                                        <option selected value="">
+                                        <option selected value="">--Select Region--
                                         </option>
 
                                         <option value="Greater Accra">Greater Accra</option>
@@ -220,7 +220,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Nationality<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="nationality">
-                                        <option >Select</option>
+                                        <option selected value="">--Select Nationality--</option>
                                         <option value="Ghanaian">Ghanaian</option>
                                         <option value="Foreigner">Foreigner</option>
 
@@ -232,7 +232,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Counsellor Membership Type<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="student-select" name="membership">
-                                        <option selected></option>
+                                        <option selected value="">--Select Membership type--</option>
                                         <option value="Certificated">Certificated Counsellor</option>
                                         <option value="Associate">Associate Counsellor</option>
 
@@ -242,7 +242,21 @@
 
 
                                     </select>
+                                    <div id="cer" style="display: none;">
+                                <small>Certificated Counsellor</small>
                                 </div>
+                                <div id="ass" style="display: none;">
+                                <small>Associate Counsellor</small>
+                                </div>
+                                <div id="stu" style="display: none;">
+                                <small>Student - Counsellor</small>
+                                </div>
+                                    
+                                </div>
+
+
+
+
 
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Passport Size Picture<span style="color:red;">*</span></label>
@@ -293,7 +307,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Do you have any Physical Challenge(s)?<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="challenge">
-                                        <option selected></option>
+                                        <option selected value="">--Select Option--</option>
                                         <option>Yes</option>
                                         <option>No</option>
 
@@ -304,7 +318,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Religious Affliation<span style="color:red;">*</span></label>
                                     <select class="form-select" required="required" id="example-select" name="religion">
-                                        <option selected></option>
+                                        <option selected value="">--Select Religion--</option>
                                         <option>Christianity</option>
                                         <option>Islam</option>
                                         <!-- <option>Traditionalist</option> -->
@@ -342,7 +356,7 @@
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">How did you hear/Know of this association</label>
                                     <select class="form-select" required="required" id="example-select" name="heard">
-                                        <option selected></option>
+                                        <option selected value="">--Select Option--</option>
                                         <option>GNACC Website</option>
                                         <option>Facebook</option>
                                         <option>WhatsApp</option>
@@ -397,7 +411,7 @@
                                 </div> -->
 
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-primary" type="submit"> Sign Up </button>
+                                    <button class="btn btn-primary" type="submit"> Register </button>
                                 </div>
 
                             </form>

@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <a href="pages-recoverpw.php" class="text-muted float-end"><small>Forgot your password?</small></a>
+                                    <!-- <a href="pages-recoverpw.php" class="text-muted float-end"><small>Forgot your password?</small></a> -->
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
                                         <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password">
@@ -84,13 +84,33 @@
 
                             </form>
                         </div> <!-- end card-body -->
+
                     </div>
+
+                    
+                    
                     <!-- end card -->
 
-                    <div class="row mt-3">
+                    <div class="row mt-1">
                         <div class="col-12 text-center">
+                        <p class="text-muted mb-0" id="tooltip-container"><strong></strong>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Facebook"><i class="mdi mdi-facebook"></i></a>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Twitter"><i class="mdi mdi-twitter"></i></a>
+                                                <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container" data-bs-placement="top" data-bs-toggle="tooltip" href="#" title="Skype"><i class="mdi mdi-skype"></i></a>
+                                            </p>
                             <!-- <p class="text-muted">Don't have an account? <a href="pages-register.php" class="text-muted ms-1"><b>Sign Up</b></a></p> -->
                         </div> <!-- end col -->
+
+
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-12 text-center">
+                            
+                        <a href="tel:+">HQ Front Desk</a> &nbsp; | &nbsp; <a href="tel:+">Zonal Head</a>
+        <!-- <a href="tel:+">Zonal Head</a> -->
+
+                        </div>
                     </div>
                     <!-- end row -->
 
@@ -103,6 +123,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt">
+        
         2021 - <script>
             document.write(new Date().getFullYear())
         </script> © GNACC
