@@ -52,11 +52,11 @@ require 'functions.php';
             }
                 if ($password != $repass) {
                     echo 'Password do not match';
-                } elseif ($fname == '' || $lname == '' || $gender == '' || $mstatus == '' || $tdate == '' || $contact == '' || $wnumber == ''|| $address == '' || $occupation == '' || $regionofresidence == '' || $nationality == '' || $membership == '' || $edulevel == '' || $area == '' || $challenge== '' || $religion == '' || $email == '') {
+                } elseif ($fname == '' || $lname == '' || $gender == '' || $mstatus == '' || $hometown == '' || $tdate == '' || $contact == '' || $wnumber == ''|| $address == '' || $occupation == '' || $regionofresidence == '' || $nationality == '' || $membership == '' || $edulevel == '' || $area == '' || $challenge== '' || $religion == '' || $email == '') {
                     echo 'All Required fields must be filled';
                 } else {
                 //    register($data);
-                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password);
+                    register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $descrip);
                 }
 
             break;

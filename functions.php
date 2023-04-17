@@ -190,7 +190,7 @@ function updateuser($id, $contact, $wnumber, $enumber, $address, $occupation, $m
     // }
 }
 
-function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password)
+function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $descrip)
 {
     $password = md5($password);
     include 'starter.php';
@@ -260,7 +260,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                 if($regionofresidence == "Greater Accra" || $regionofresidence == "Eastern Region" || $regionofresidence == "Volta Region" || $regionofresidence == "Oti Region" ){
                     $zone = "VEGA";
 
-                }else if ($regionofresidence == "North East Region" ||$regionofresidence == "Northern Region" || $regionofresidence == "Upper East Region" || $regionofresidence == "Upper West Region"|| $regionofresidence == "Savvannah Region" ){
+                }else if ($regionofresidence == "North East Region" ||$regionofresidence == "Northern Region" || $regionofresidence == "Upper East Region" || $regionofresidence == "Upper West Region"|| $regionofresidence == "Savannah Region" ){
                     $zone = "NUEW";
 
 
@@ -281,7 +281,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
 
              
 
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid,zone,natid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccno','$zone','$filenamegh' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,iDCard,heard,email,password,expiry,existing,dateadded,hometown,workplace,gpcno,religion,regionResidence,gnaccid,zone,natid,challengeDescription) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year', '$filenameid', '$heard','$email','$password','$end','$existing','$dd', '$hometown', '$workplace', '$gpcno', '$religion', '$regionofresidence','$gnaccno','$zone','$filenamegh','$descrip' ) ");
 
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");
@@ -379,7 +379,7 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                 
         
         
-                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded,zone,natid,hometown,workplace,gpcno,religion,regionResidence,gnaccid) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd','$zone','$filenamegh','$hometown','$workplace','$gpcno','$religion','$regionofresidence','$gnaccno' ) ");
+                $ins = mysqli_query($conn, "INSERT INTO members (title,name,gender,tdate,contact,whatsapp,emergency,gpsAddress,occupation,maritalStatus,region,nationality,passport,eduLevel,counsellingArea,membership,phyChallenge,school,programme,year,heard,email,password,expiry,existing,dateadded,zone,natid,hometown,workplace,gpcno,religion,regionResidence,gnaccid,challengeDescription) VALUES('$title','$name','$gender','$tdate','$contact','$wnumber','$enumber','$address','$occupation','$mstatus','$region','$nationality','$filename','$edulevel','$area','$membership','$challenge','$school','$programme','$year','$heard','$email','$password','$end','$existing','$dd','$zone','$filenamegh','$hometown','$workplace','$gpcno','$religion','$regionofresidence','$gnaccno','$descrip' ) ");
         
                 if ($ins) {
                     $sel = mysqli_query($conn, "SELECT * FROM members WHERE email = '$email' AND password='$password'");

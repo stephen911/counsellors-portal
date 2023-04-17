@@ -12,9 +12,22 @@ const ass = document.getElementById('ass');
 const stu = document.getElementById('stu');
 
 
+const des = document.getElementById('des-select');
+const descrip = document.getElementById('descrip');
+// const descrip = document.getElementById('country');
 
 // const tertiary = document.getElementById('tertiary2');
 // const specify = document.getElementById('specify');
+
+des.addEventListener('change', function handleChange(event) {
+  if (event.target.value == 'Yes') {
+    descrip.style.display = 'block';
+  }else{
+    descrip.style.display = 'none';
+  }
+
+
+});
 
 el.addEventListener('change', function handleChange(event) {
   // if (event.target.value == 'none') {
