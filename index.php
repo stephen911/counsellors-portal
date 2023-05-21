@@ -38,6 +38,7 @@
                         <div class="card-header pt-4 pb-4 text-center bg-primary">
                             <a href="#">
                                 <span><img src="assets/images/logo.png" alt="logo" height="80"></span>
+                                
                             </a>
                         </div>
 
