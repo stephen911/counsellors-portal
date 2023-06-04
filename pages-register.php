@@ -720,14 +720,23 @@
     </footer>
 
     <!-- Vendor js -->
-    <script src="assets/js/vendor.min.js"></script>
+    <!-- <script src="assets/js/vendor.min.js"></script> -->
 
     <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
+    <!-- <script src="assets/js/app.min.js"></script>
     <script src="assets/js/sweetalert2.all.min.js"></script>
 
     <script src="processor.js"></script>
-    <script src="assets/js/view.js"></script>
+    <script src="assets/js/view.js"></script> -->
+
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script>
+
+    <script src="processor.js"></script>
+
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
 
 </body>
 
