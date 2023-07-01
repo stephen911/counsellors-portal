@@ -312,12 +312,15 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                         //Execute query
     
                         mysqli_query($conn, $sqlid);
-                        session_start();
-                        $_SESSION['id'] = $row['id'];
+                        // session_start();
+                        // die($idw);
+
+                        // $_SESSION['id'] = $idw;
 
                     }
 
-                   
+                    session_start();
+                    $_SESSION['id'] = $row['id'];                  
 
                     echo 'registered';
                 } else {
@@ -407,10 +410,10 @@ function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $e
                         //Execute query
     
                         mysqli_query($conn, $sqlid);
-                        session_start();
-                        $_SESSION['id'] = $row['id'];
-
+                        
                     }
+                    session_start();
+                    $_SESSION['id'] = $row['id'];
                     echo 'registered';
                 } else {
                 }
