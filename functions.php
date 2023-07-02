@@ -82,7 +82,7 @@ function resetpass($email)
  
     $update = mysqli_query($conn,"UPDATE members set reset_link_token='" . $token . "' ,exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
  
-    $link = "<a href='http://localhost:8080/counsel/reset-page.php?key=".$emailId."&token=".$token."'>Click To Reset password</a>";
+    $link = "<a href='https://gnaccportal.com/reset-page.php?key=".$emailId."&token=".$token."'>Click To Reset password</a>";
  
     // require_once('phpmail/PHPMailerAutoload.php');
  
