@@ -1,3 +1,17 @@
+
+<!-- this is where we can grab ther  get request  sorry i am using UK key board thats why 
+. okay -->
+
+<?php 
+require_once __DIR__ . '/functions.php';
+
+
+extract($_GET);
+$data = $_GET;
+
+CheckIfcanresetpassword($data);
+
+?>
 <!DOCTYPE html>
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-sidenav-color="light" data-sidenav-user="true">
 
@@ -43,11 +57,21 @@
                                     <h4 class="text-dark-50 text-center mt-0 fw-bold">Reset Password</h4>
                                     <p class="text-muted mb-4">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                                 </div>
+                            
 
-                                <form action="" novalidate method="post" class="resett">
+                                
+
+                                <form action="" novalidate method="post" class="ureset">
                                     <div class="mb-3">
-                                        <label for="emailaddress" class="form-label">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" name="email">
+                                        <label for="emailaddress" class="form-label">New Password</label>
+                                        <input type="hidden" name="email" value="<?php echo $data['key'];?>">
+
+                                        <input class="form-control" type="password" id="emailaddress" required="" placeholder="Enter New Password" name="password">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="emailaddress" class="form-label">Confirm Password</label>
+                                        <input class="form-control" type="password" id="emailaddress" required="" placeholder="Confirm Password" name="cpassword">
                                     </div>
 
                                     <div class="mb-0 text-center">
@@ -76,12 +100,6 @@
         <footer class="footer footer-alt">
             2022 - <script>document.write(new Date().getFullYear())</script> © GNACC
         </footer>
-        <!-- Vendor js -->
-
-        
-        <!-- App js -->
-    
-
         <script src="assets/js/vendor.min.js"></script>
     <script src="assets/js/sweetalert2.all.min.js"></script>
 

@@ -13,21 +13,7 @@ require 'functions.php';
 
             break;
         
-        case 'cfuser':
-            extract($_POST);
-            // extract($_POST);
-            confirmuser($id, $confirmation);
-            
 
-            break;
-        
-        case 'ticket':
-            extract($_POST);
-            // extract($_POST);
-            confirmuser($id, $confirmation);
-            
-
-            break;
 
         case 'enrolluser':
             extract($_POST);
@@ -40,6 +26,28 @@ require 'functions.php';
         case 'login':
             extract($_POST);
             login($email, $password);
+            break;
+
+
+        case 'resett':
+            extract($_POST);
+            resetpass($email,);
+            break;
+
+        case 'updatepass':
+            extract($_POST);
+            updatepassword($password);
+            break;
+
+
+        case 'ureset':
+            extract($_POST);
+            if ($password != $cpassword) {
+                echo 'Password do not match';
+            }else{
+
+                ureset($password, $email);
+            }
             break;
 
         case 'register':

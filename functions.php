@@ -42,13 +42,235 @@ function login($email, $password)
     }
 }
 
-function logout()
+
+
+function resetpass($email)
 {
-    session_start();
-    // session_destroy();
-    unset($_SESSION['id']);
-    echo '<script>window.location="index.php"</script>';
+    include 'starter.php';
+
+    if($_POST['email'])
+{
+    // include "db.php";
+        // include 'mail.php';
+
+    // require '/PHPMailer/src/Exception.php';
+    // require '/PHPMailer/src/PHPMailer.php';
+    // require '/PHPMailer/src/SMTP.php';
+
+    // use PHPMailer\PHPMailer\PHPMailer;
+    //  use PHPMailer\PHPMailer\SMTP;
+
+    // $m = new Mail();
+    
+     
+    $emailId = $_POST['email'];
+ 
+    $result = mysqli_query($conn,"SELECT * FROM members WHERE email='" . $emailId . "'");
+ 
+    $row= mysqli_fetch_array($result);
+ 
+  if($row)
+  {
+     
+     $token = md5($emailId).rand(10,9999);
+ 
+     $expFormat = mktime(
+     date("H"), date("i"), date("s"), date("m") ,date("d")+1, date("Y")
+     );
+ 
+    $expDate = date("Y-m-d H:i:s",$expFormat);
+ 
+    $update = mysqli_query($conn,"UPDATE members set reset_link_token='" . $token . "' ,exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
+ 
+    $link = "<a href='http://localhost:8080/counsel/reset-page.php?key=".$emailId."&token=".$token."'>Click To Reset password</a>";
+ 
+    // require_once('phpmail/PHPMailerAutoload.php');
+ 
+    // $mail = new PHPMailer();
+ 
+    // $mail->CharSet =  "utf-8";
+    // $mail->IsSMTP();
+    // // enable SMTP authentication
+    // $mail->SMTPAuth = true;                  
+    // // GMAIL username
+    // $mail->Username = "your_email_id@gmail.com";
+    // // GMAIL password
+    // $mail->Password = "your_gmail_password";
+    // $mail->SMTPSecure = "ssl";  
+    // // sets GMAIL as the SMTP server
+    // $mail->Host = "smtp.gmail.com";
+    // // set the SMTP port for the GMAIL server
+    // $mail->Port = "465";
+    // $mail->From='your_gmail_id@gmail.com';
+    // $mail->FromName='your_name';
+    // $mail->AddAddress('reciever_email_id', 'reciever_name');
+    // $mail->Subject  =  'Reset Password';
+    // $mail->IsHTML(true);
+    // $mail->Body    = 'Click On This Link to Reset Password '.$link.'';
+
+    $subject = 'Reset Password';
+            $body = '<html> 
+            <head> 
+                <title>Password Reset Link</title> 
+            </head> 
+            <body> 
+                <p> Click On This Link to Reset Password '.$link.' </p>
+            </body> 
+            </html>';
+            // yolk mailer
+            // $mym = [$email];
+            $from = ['Tucee', 'TUCEEHUB@tuceehub.org'];
+            $headers = 'MIME-Version: 1.0'."\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+            $headers .= 'From: '.$from[1];
+            mail($email, 'TUCEE '.$subject, $body, $headers);
+    if($mail->Send())
+    {
+      echo "resetsent";
+    }
+
+
+
+    else
+    {
+      echo "Mail Error - >".$mail->ErrorInfo;
+    }
+  }else{
+    echo "Invalid Email Address";
+  }
 }
+
+
+}
+
+
+// cheking to see if user qualify to reset password
+
+function CheckIfcanresetpassword($data){
+
+    include 'starter.php';
+
+    // 
+    if(!isset($data['key']) || !isset($data['token']) ){
+
+        echo ' <script>
+        alert("No key!");
+    
+        setTimeout(function(){
+            window.location="index.php";
+            
+        },1000);
+        
+        </script>';
+    }
+    else{
+
+        checkIftokenforuser($data);
+
+    }
+
+    
+
+
+}
+
+// check if token  is  for the right user 
+
+function checkIftokenforuser($data){
+
+    include 'starter.php';
+    $key  = $data['key'];
+    $token = $data['token'];
+    $query = mysqli_query($conn, "SELECT * FROM members WHERE email='$key' AND reset_link_token= '$token'");
+    $row = mysqli_fetch_array($query);
+    $exp = $row['exp_date'];
+    if(mysqli_num_rows($query) > 0){
+
+
+        // checking if  token is expired
+        if($exp < date('Y-m-d H:i:s')){
+
+            echo ' <script>
+            alert("Token Expired!");
+        
+            setTimeout(function(){
+                window.location="index.php";
+                
+            },1000);
+            
+            </script>';
+        }
+
+    }
+        else{
+            echo ' <script>
+            alert("Invalid key!");
+        
+            setTimeout(function(){
+                window.location="index.php";
+                
+            },1000);
+            
+            </script>';
+        }
+        
+
+    
+
+
+}
+
+
+function updatepassword($password){
+    
+if(isset($_POST['password']) && $_POST['reset_link_token'] && $_POST['email'])
+{
+include "starter.php";
+$emailId = $_POST['email'];
+$token = $_POST['reset_link_token'];
+$password = md5($_POST['password']);
+$query = mysqli_query($conn,"SELECT * FROM members WHERE `reset_link_token`='".$token."' and `email`='".$emailId."'");
+$row = mysqli_num_rows($query);
+if($row){
+mysqli_query($conn,"UPDATE users set  password='" . $password . "', reset_link_token='" . NULL . "' ,exp_date='" . NULL . "' WHERE email='" . $emailId . "'");
+echo '<p>Congratulations! Your password has been updated successfully.</p>';
+}else{
+   echo "<p>Something goes wrong. Please try again</p>";
+}
+}
+
+
+}
+
+
+
+
+
+
+
+function ureset($password,$email){
+    
+
+    include "starter.php";
+
+    // die($email);
+    $password = md5($password);
+    $expFormat = mktime(
+        date("H"), date("i"), date("s"), date("m") ,date("d")-1, date("Y")
+        );
+    
+       $expDate = date("Y-m-d H:i:s",$expFormat);
+    
+       $token = rand(100, 9999);
+    $query = mysqli_query($conn, "UPDATE members set  password='$password', reset_link_token='$token', exp_date='$expDate' WHERE email='$email'");
+    
+    if($query){
+        echo 'changepasssuccess';
+    }
+
+}
+
+
 
 function checker()
 {
@@ -69,34 +291,6 @@ function members()
     $row = mysqli_fetch_array($d);
 
     return $row;
-}
-
-function confirmuser($id, $confirmation)
-{
-    include 'starter.php';
-    // $id = $_SESSION['id'];
-    if ($confirmation == "No") {
-
-        $conf = mysqli_query($conn, "UPDATE members SET confirm ='$confirmation' WHERE id='$id'  ");
-        if ($conf) {
-            echo 'no';
-        } else {
-            echo 'Failed to update record . Try again';
-        }
-    } else {
-        $conf = mysqli_query($conn, "UPDATE members SET confirm ='$confirmation' WHERE id='$id'  ");
-        if ($conf) {
-            echo 'yes';
-        } else {
-            echo 'Failed to update record . Try again';
-        }
-    }
-
-    // if ($conf) {
-    //     echo 'confirmed';
-    // } else {
-    //     echo 'Failed to update record . Try again';
-    // }
 }
 
 function enrolluser($id, $enroll)
@@ -192,8 +386,8 @@ function updateuser($id, $contact, $wnumber, $enumber, $address, $occupation, $m
 
 function register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $descrip) 
 {
-    $password = md5($password);
     include 'starter.php';
+    $password = md5($password);
     // include 'yolksms.php';
     // include 'sms.php';
     // $sms = new sms();

@@ -5,7 +5,7 @@
 <!-- Mirrored from coderthemes.com/hyper_2/modern/pages-recoverpw-2.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 <head>
         <meta charset="utf-8" />
-        <title>Recover Password | GNACC - Responsive Bootstrap 5 Admin Dashboard</title>
+        <title>Recover Password | GNACC Poratl/title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -68,16 +68,7 @@
             <!-- end auth-fluid-form-box-->
 
             <!-- Auth fluid right content -->
-            <div class="auth-fluid-right text-center">
-                <div class="auth-user-testimonial">
-                    <h2 class="mb-3">I love the color!</h2>
-                    <p class="lead"><i class="mdi mdi-format-quote-open"></i> It's a elegent templete. I love it very much! . <i class="mdi mdi-format-quote-close"></i>
-                    </p>
-                    <p>
-                        - GNACC Admin User
-                    </p>
-                </div> <!-- end auth-user-testimonial-->
-            </div>
+            
             <!-- end Auth fluid right content -->
         </div>
         <!-- end auth-fluid-->
@@ -90,5 +81,4 @@
     </body>
 
 
-<!-- Mirrored from coderthemes.com/hyper_2/modern/pages-recoverpw-2.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Nov 2022 09:19:09 GMT -->
 </html>
