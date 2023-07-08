@@ -123,8 +123,8 @@ function resetpass($email)
             $headers = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
             $headers .= 'From: '.$from[1];
-            mail($email, 'TUCEE '.$subject, $body, $headers);
-    if($mail->Send())
+            // mail($email, 'TUCEE '.$subject, $body, $headers);
+    if(mail($email, 'TUCEE '.$subject, $body, $headers))
     {
       echo "resetsent";
     }
