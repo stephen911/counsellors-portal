@@ -141,7 +141,7 @@ $(function () {
           swal.showLoading();
         },
       }).then(function (result) {
-        window.location = "reset-page.php";
+        window.location = "pages-recoverpw.php";
       });
     } else if (response == "changepasssuccess") {
       swal({

@@ -153,13 +153,17 @@ function CheckIfcanresetpassword($data){
     if(!isset($data['key']) || !isset($data['token']) ){
 
         echo ' <script>
-        alert("No key!");
-    
-        setTimeout(function(){
+        swal({
+            title: "Attention!",
+            text: "No key or token found",
+            type: "warning",
+            padding: "2em",
+          });
+
+
+          setTimeout(function(){
             window.location="index.php";
-            
-        },1000);
-        
+          },1000);  
         </script>';
     }
     else{
@@ -189,27 +193,35 @@ function checkIftokenforuser($data){
         // checking if  token is expired
         if($exp < date('Y-m-d H:i:s')){
 
-            echo ' <script>
-            alert("Token Expired!");
-        
-            setTimeout(function(){
+            echo '<script>
+            swal({
+                title: "Attention!",
+                text: : "Token Expired",
+                type: "warning",
+                padding: "2em",
+              });
+    
+    
+              setTimeout(function(){
                 window.location="index.php";
-                
-            },1000);
-            
+              },1000);  
             </script>';
         }
 
     }
         else{
-            echo ' <script>
-            alert("Invalid key!");
-        
-            setTimeout(function(){
+            echo '<script>
+            swal({
+                title: "Attention!",
+                text: : "Invalid Key",
+                type: "warning",
+                padding: "2em",
+              });
+    
+    
+              setTimeout(function(){
                 window.location="index.php";
-                
-            },1000);
-            
+              },1000);  
             </script>';
         }
         
@@ -276,8 +288,18 @@ function checker()
     session_start();
     if (!isset($_SESSION['id'])) {
         echo '<script>
-        alert("You need to login first");
-        window.location="index.php"</script>';
+        swal({
+            title: "Attention!",
+            text: "You are not logged in",
+            type: "warning",
+            padding: "2em",
+          });
+
+
+          setTimeout(function(){
+            window.location="index.php";
+          },1000);  
+        </script>';
     }
 }
 
