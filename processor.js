@@ -140,9 +140,10 @@ $(function () {
         onOpen: function () {
           swal.showLoading();
         },
-      }).then(function (result) {
-        window.location = "pages-recoverpw.php";
-      });
+      })
+      // .then(function (result) {
+      //   window.location = "pages-recoverpw.php";
+      // });
     } else if (response == "changepasssuccess") {
       swal({
         title: "Success",
