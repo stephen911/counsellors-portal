@@ -652,7 +652,7 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Confirm Password<span style="color:red;">*</span></label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" required="required" id="password" class="form-control" placeholder="Enter your password" name="repass">
+                                        <input type="password" required="required" id="repassword" class="form-control" placeholder="Enter your password" name="repass">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
