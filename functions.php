@@ -119,7 +119,7 @@ function resetpass($email)
             </html>';
             // yolk mailer
             // $mym = [$email];
-            $from = ['Tucee', 'TUCEEHUB@tuceehub.org'];
+            $from = ['Tucee', 'info@gnaccportal.com'];
             $headers = 'MIME-Version: 1.0'."\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
             $headers .= 'From: '.$from[1];
@@ -128,7 +128,6 @@ function resetpass($email)
     {
       echo "resetsent";
     }
-
 
 
     else
