@@ -82,7 +82,7 @@ function resetpass($email)
  
     $update = mysqli_query($conn,"UPDATE members set reset_link_token='" . $token . "' ,exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
  
-    $link = "<a href='https://gnaccportal.com/reset-page.php?key=".$emailId."&token=".$token."'>Click To Reset password</a>";
+    $link = "<a href='https://gnaccportal.com/reset-page.php?key=".$emailId."&token=".$token."'>Password reset link</a>";
  
     // require_once('phpmail/PHPMailerAutoload.php');
  
@@ -107,16 +107,37 @@ function resetpass($email)
     // $mail->Subject  =  'Reset Password';
     // $mail->IsHTML(true);
     // $mail->Body    = 'Click On This Link to Reset Password '.$link.'';
-
+    $name = $row['name'];
     $subject = 'Reset Password';
-            $body = '<html> 
-            <head> 
-                <title>Password Reset Link</title> 
-            </head> 
-            <body> 
-                <p> Click On This Link to Reset Password '.$link.' </p>
-            </body> 
-            </html>';
+            $body = '<!DOCTYPE html>
+            <html>
+            
+            <head>
+                <meta charset="UTF-8">
+                <title>Reset Your Password</title>
+            </head>
+            
+            <body>
+                <div style="font-family: Arial, sans-serif; padding: 20px;">
+                    <h2>Reset Your Password</h2>
+                    <p>Dear '.$name.',</p>
+                    <p>We have received a request to reset the password for your account. To proceed with the password reset process, please follow the instructions below:</p>
+                    <ol>
+                        <li>Click on the following link to access the password reset page: '.$link.'</li>
+                        <li>Once you have clicked on the link, you will be directed to a secure page where you can enter your new password.</li>
+                        <li>Choose a strong password that contains a combination of uppercase and lowercase letters, numbers, and special characters. It is important to select a unique password that you have not used for any other accounts.</li>
+                    </ol>
+                    <p>If you did not initiate this password reset request, please ignore this email and take the necessary steps to secure your account.</p>
+                    <p>If you have any questions or need further assistance, please do not hesitate to contact our support team at <a href="mailto:info@gnaccportal.com">info@gnaccportal.com</a>. We are here to help you.</p>
+                    <br>
+                    <p>Best regards,</p>
+                    <p>GNACC</p>
+                    
+                </div>
+            </body>
+            
+            </html>
+            ';
             // yolk mailer
             // $mym = [$email];
             $from = ['Tucee', 'info@gnaccportal.com'];
@@ -124,7 +145,7 @@ function resetpass($email)
             $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
             $headers .= 'From: '.$from[1];
             // mail($email, 'TUCEE '.$subject, $body, $headers);
-    if(mail($email, 'TUCEE '.$subject, $body, $headers))
+    if(mail($email, 'GNACC '.$subject, $body, $headers))
     {
       echo "resetsent";
     }
