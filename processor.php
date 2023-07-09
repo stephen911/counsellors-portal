@@ -25,7 +25,18 @@ require 'functions.php';
 
         case 'login':
             extract($_POST);
-            login($email, $password);
+
+            if ($email == '' || $password == '') {
+                echo 'All Required fields must be filled';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo "Invalid email format";
+              }
+              else{
+                  login($email, $password);
+              } 
+              
+
+
             break;
 
 
@@ -62,8 +73,19 @@ require 'functions.php';
                     echo 'Password do not match';
                 } elseif ($fname == '' || $lname == '' || $gender == '' || $mstatus == '' || $hometown == '' || $tdate == '' || $contact == '' || $wnumber == ''|| $address == '' || $occupation == '' || $regionofresidence == '' || $nationality == '' || $membership == '' || $edulevel == '' || $area == '' || $challenge== '' || $religion == '' || $email == '') {
                     echo 'All Required fields must be filled';
-                } else {
+                } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo "Invalid email format";
+                  } 
+                  elseif(!preg_match('/^[0-9]{13}+$/', $contact) || !preg_match('/^[0-9]{13}+$/', $wnumber) || !preg_match('/^[0-9]{13}+$/', $enumber)){
+                echo "Invalid Phone Number";
+                } 
+
+                elseif(!preg_match ("/^[a-zA-z]*$/", $name)){
+                    echo "Invalid Name";
+                }
+                else {
                 //    register($data);
+                // $valid_number = filter_var($phone, FILTER_SANITIZE_NUMBER_INT);
                     register($name, $title, $email, $tdate, $contact, $gender, $wnumber, $enumber, $address, $occupation, $mstatus, $region, $gnaccno, $gpcno, $workplace, $hometown, $religion, $regionofresidence, $nationality, $edulevel, $area, $membership, $challenge, $school, $programme, $year, $heard, $password, $descrip);
                 }
 
